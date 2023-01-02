@@ -1,8 +1,8 @@
-#include<string.h>
-int main(){
-    int i;
-    for(i=1;i<=10;i++){
-        printf("%d",i);
+int main() {
+    int a;
+    int i=0;
+    for(i=0;i<3;i=i+1) 
+    {
+        i = i + 1;
     }
-    return 0;
 }
