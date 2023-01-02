@@ -15,9 +15,8 @@ struct ASTNode * mknode(int num,int kind,int pos,...){
     return T;
 }
 
-
-void display(struct ASTNode *T,int indent)
-{//对抽象语法树的先根遍历
+//语法树先序遍历
+void display(struct ASTNode *T,int indent) {
   int i=1;
   struct ASTNode *T0;
   if (T)
@@ -171,8 +170,6 @@ void display(struct ASTNode *T,int indent)
                         display(T0,indent+3);
                         T=T->ptr[1];
                         }
-//                    printf("%*c第%d个实际参数表达式:\n",indent,' ',i);
-  //                  display(T,indent+3);
                     printf("\n");
                     break;
          }
