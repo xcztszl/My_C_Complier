@@ -781,7 +781,7 @@ YY_RULE_SETUP
 case 14:
 YY_RULE_SETUP
 #line 42 "lex.l"
-{strcpy(yylval.type_id,  yytext); return ID;/*鐢变簬鍏抽敭瀛楃殑褰㈠紡涔熺鍚堣〃绀虹鐨勮鍒欙紝鎵€浠ユ妸鍏抽敭瀛楃殑澶勭悊鍏ㄩ儴鏀惧湪鏍囪瘑绗︾殑鍓嶉潰锛屼紭鍏堣瘑鍒�*/}
+{strcpy(yylval.type_id,  yytext); return ID;/*由于关键字的形式也符合表示符的规则，所以把关键字的处理全部放在标识符的前面，优先识�?*/}
 	YY_BREAK
 case 15:
 YY_RULE_SETUP
@@ -911,12 +911,12 @@ YY_RULE_SETUP
 case 40:
 YY_RULE_SETUP
 #line 68 "lex.l"
-{/* 娉ㄩ噴 */}
+{}
 	YY_BREAK
 case 41:
 YY_RULE_SETUP
 #line 69 "lex.l"
-{/* 娉ㄩ噴 */}
+{}
 	YY_BREAK
 case 42:
 YY_RULE_SETUP

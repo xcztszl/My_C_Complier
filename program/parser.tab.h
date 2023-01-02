@@ -39,35 +39,102 @@
    /* Put the tokens into the symbol table, so that GDB and other debuggers
       know about them.  */
    enum yytokentype {
-     DEF_INT = 258,
-     DEF_DOUBLE = 259,
-     DEF_CHAR = 260,
-     INT = 261,
-     DOUBLE = 262,
+     INT = 258,
+     ID = 259,
+     RELOP = 260,
+     TYPE = 261,
+     FLOAT = 262,
      CHAR = 263,
-     VAR = 264,
-     EQ = 265,
-     END = 266,
-     CR = 267
+     DPLUS = 264,
+     LP = 265,
+     RP = 266,
+     LS = 267,
+     RS = 268,
+     LC = 269,
+     RC = 270,
+     SEMI = 271,
+     COMMA = 272,
+     MINUSMINUS = 273,
+     PLUSPLUS = 274,
+     PLUS = 275,
+     MINUS = 276,
+     STAR = 277,
+     DIV = 278,
+     ASSIGNOP = 279,
+     AND = 280,
+     OR = 281,
+     NOT = 282,
+     IF = 283,
+     ELSE = 284,
+     WHILE = 285,
+     FOR = 286,
+     RETURN = 287,
+     SWITCH = 288,
+     CASE = 289,
+     COLON = 290,
+     DEFAULT = 291,
+     PLUSASSIGNOP = 292,
+     MINUSASSIGNOP = 293,
+     STARASSIGNOP = 294,
+     DIVASSIGNOP = 295,
+     BREAK = 296,
+     CONTINUE = 297,
+     EXT_DEF_LIST = 298,
+     EXT_VAR_DEF = 299,
+     FUNC_DEF = 300,
+     FUNC_DEC = 301,
+     EXT_DEC_LIST = 302,
+     PARAM_LIST = 303,
+     PARAM_DEC = 304,
+     VAR_DEF = 305,
+     DEC_LIST = 306,
+     DEF_LIST = 307,
+     COMP_STM = 308,
+     STM_LIST = 309,
+     EXP_STMT = 310,
+     IF_THEN = 311,
+     IF_THEN_ELSE = 312,
+     ARRAY_LIST = 313,
+     ARRAY_ID = 314,
+     FUNC_CALL = 315,
+     ARGS = 316,
+     FUNCTION = 317,
+     PARAM = 318,
+     ARG = 319,
+     CALL = 320,
+     LABEL = 321,
+     GOTO = 322,
+     JLT = 323,
+     JLE = 324,
+     JGT = 325,
+     JGE = 326,
+     EQ = 327,
+     NEQ = 328,
+     UMINUS = 329,
+     LOWER_THEN_ELSE = 330
    };
 #endif
-/* Tokens.  */
-#define DEF_INT 258
-#define DEF_DOUBLE 259
-#define DEF_CHAR 260
-#define INT 261
-#define DOUBLE 262
-#define CHAR 263
-#define VAR 264
-#define EQ 265
-#define END 266
-#define CR 267
-
 
 
 
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
-typedef int YYSTYPE;
+typedef union YYSTYPE
+{
+
+/* Line 1676 of yacc.c  */
+#line 15 "parser.y"
+
+	int    type_int;
+	float  type_float;
+        char   type_char;
+	char   type_id[32];
+	struct ASTNode *ptr;
+
+
+
+/* Line 1676 of yacc.c  */
+#line 137 "parser.tab.h"
+} YYSTYPE;
 # define YYSTYPE_IS_TRIVIAL 1
 # define yystype YYSTYPE /* obsolescent; will be withdrawn */
 # define YYSTYPE_IS_DECLARED 1
@@ -75,4 +142,18 @@ typedef int YYSTYPE;
 
 extern YYSTYPE yylval;
 
+#if ! defined YYLTYPE && ! defined YYLTYPE_IS_DECLARED
+typedef struct YYLTYPE
+{
+  int first_line;
+  int first_column;
+  int last_line;
+  int last_column;
+} YYLTYPE;
+# define yyltype YYLTYPE /* obsolescent; will be withdrawn */
+# define YYLTYPE_IS_DECLARED 1
+# define YYLTYPE_IS_TRIVIAL 1
+#endif
+
+extern YYLTYPE yylloc;
 

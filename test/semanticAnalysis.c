@@ -76,7 +76,7 @@ char *newTemp(){
     return strcat0("temp",s);
 }
 
-//Éú³ÉÒ»ÌõTAC´úÂëµÄ½áµã×é³ÉµÄË«ÏòÑ­»·Á´±í£¬·µ»ØÍ·Ö¸Õë
+//ç”Ÿæˆä¸€æ¡TACä»£ç çš„ç»“ç‚¹ç»„æˆçš„åŒå‘å¾ªç¯é“¾è¡¨ï¼Œè¿”å›å¤´æŒ‡é’ˆ
 struct codenode *genIR(int op,struct opn opn1,struct opn opn2,struct opn result){
     struct codenode *h=(struct codenode *)malloc(sizeof(struct codenode));
     h->op=op;
@@ -87,7 +87,7 @@ struct codenode *genIR(int op,struct opn opn1,struct opn opn2,struct opn result)
     return h;
 }
 
-//Éú³ÉÒ»Ìõ±êºÅÓï¾ä£¬·µ»ØÍ·Ö¸Õë
+//ç”Ÿæˆä¸€æ¡æ ‡å·è¯­å¥ï¼Œè¿”å›å¤´æŒ‡é’ˆ
 struct codenode *genLabel(char *label){
     struct codenode *h=(struct codenode *)malloc(sizeof(struct codenode));
     h->op=LABEL;
@@ -96,7 +96,7 @@ struct codenode *genLabel(char *label){
     return h;
 }
 
-//Éú³ÉGOTOÓï¾ä£¬·µ»ØÍ·Ö¸Õë
+//ç”ŸæˆGOTOè¯­å¥ï¼Œè¿”å›å¤´æŒ‡é’ˆ
 struct codenode *genGoto(char *label){
     struct codenode *h=(struct codenode *)malloc(sizeof(struct codenode));
     h->op=GOTO;
@@ -105,7 +105,7 @@ struct codenode *genGoto(char *label){
     return h;
 }
 
-//ºÏ²¢¶à¸öÖĞ¼ä´úÂëµÄË«ÏòÑ­»·Á´±í£¬Ê×Î²ÏàÁ¬
+//åˆå¹¶å¤šä¸ªä¸­é—´ä»£ç çš„åŒå‘å¾ªç¯é“¾è¡¨ï¼Œé¦–å°¾ç›¸è¿
 struct codenode *merge(int num,...){
     struct codenode *h1,*h2,*p,*t1,*t2;
     va_list ap;
@@ -127,7 +127,7 @@ struct codenode *merge(int num,...){
     return h1;
 }
 
-//Êä³öÖĞ¼ä´úÂë
+//è¾“å‡ºä¸­é—´ä»£ç 
 void prnIR(struct codenode *head){
     char opnstr1[32],opnstr2[32],resultstr[32];
     struct codenode *h=head;
@@ -209,12 +209,12 @@ void prnIR(struct codenode *head){
     } while (h!=head);
 }
 void semantic_error(int line,char *msg1,char *msg2){
-    //ÕâÀï¿ÉÒÔÖ»ÊÕ¼¯´íÎóĞÅÏ¢£¬×îºóÒ»´ÎÏÔÊ¾
-    printf("ÔÚ%dĞĞ,%s %s\n",line,msg1,msg2);
+    //è¿™é‡Œå¯ä»¥åªæ”¶é›†é”™è¯¯ä¿¡æ¯ï¼Œæœ€åä¸€æ¬¡æ˜¾ç¤º
+    printf("åœ¨%dè¡Œ,%s %s\n",line,msg1,msg2);
 }
-void prn_symbol(){ //ÏÔÊ¾·ûºÅ±í
+void prn_symbol(){ //æ˜¾ç¤ºç¬¦å·è¡¨
     int i=0;
-    printf("%6s %6s %6s  %6s %4s %6s\n","±äÁ¿Ãû","±ğ Ãû","²ã ºÅ","Àà  ĞÍ","±ê¼Ç","Æ«ÒÆÁ¿");
+    printf("%6s %6s %6s  %6s %4s %6s\n","å˜é‡å","åˆ« å","å±‚ å·","ç±»  å‹","æ ‡è®°","åç§»é‡");
     for(i=0;i<symbolTable.index;i++)
         printf("%6s %6s %6d  %6s %4c %6d\n",symbolTable.symbols[i].name,\
                 symbolTable.symbols[i].alias,symbolTable.symbols[i].level,\
@@ -230,25 +230,25 @@ int searchSymbolTable(char *name) {
 }
 
 int fillSymbolTable(char *name,char *alias,int level,int type,char flag,int offset) {
-    //Ê×ÏÈ¸ù¾İname²é·ûºÅ±í£¬²»ÄÜÖØ¸´¶¨Òå ÖØ¸´¶¨Òå·µ»Ø-1
+    //é¦–å…ˆæ ¹æ®nameæŸ¥ç¬¦å·è¡¨ï¼Œä¸èƒ½é‡å¤å®šä¹‰ é‡å¤å®šä¹‰è¿”å›-1
     int i;
-    /*·ûºÅ²éÖØ£¬¿¼ÂÇÍâ²¿±äÁ¿ÉùÃ÷Ç°ÓĞº¯Êı¶¨Òå£¬
-    ÆäĞÎ²ÎÃû»¹ÔÚ·ûºÅ±íÖĞ£¬ÕâÊ±µÄÍâ²¿±äÁ¿ÓëÇ°º¯ÊıµÄĞÎ²ÎÖØÃûÊÇÔÊĞíµÄ*/
+    /*ç¬¦å·æŸ¥é‡ï¼Œè€ƒè™‘å¤–éƒ¨å˜é‡å£°æ˜å‰æœ‰å‡½æ•°å®šä¹‰ï¼Œ
+    å…¶å½¢å‚åè¿˜åœ¨ç¬¦å·è¡¨ä¸­ï¼Œè¿™æ—¶çš„å¤–éƒ¨å˜é‡ä¸å‰å‡½æ•°çš„å½¢å‚é‡åæ˜¯å…è®¸çš„*/
     for(i=symbolTable.index-1; i>=0 && (symbolTable.symbols[i].level==level||level==0); i--) {
-        if (level==0 && symbolTable.symbols[i].level==1) continue;  //Íâ²¿±äÁ¿ºÍĞÎ²Î²»±Ø±È½ÏÖØÃû
+        if (level==0 && symbolTable.symbols[i].level==1) continue;  //å¤–éƒ¨å˜é‡å’Œå½¢å‚ä¸å¿…æ¯”è¾ƒé‡å
         if (!strcmp(symbolTable.symbols[i].name, name))  return -1;
         }
-    //ÌîĞ´·ûºÅ±íÄÚÈİ
+    //å¡«å†™ç¬¦å·è¡¨å†…å®¹
     strcpy(symbolTable.symbols[symbolTable.index].name,name);
     strcpy(symbolTable.symbols[symbolTable.index].alias,alias);
     symbolTable.symbols[symbolTable.index].level=level;
     symbolTable.symbols[symbolTable.index].type=type;
     symbolTable.symbols[symbolTable.index].flag=flag;
     symbolTable.symbols[symbolTable.index].offset=offset;
-    return symbolTable.index++; //·µ»ØµÄÊÇ·ûºÅÔÚ·ûºÅ±íÖĞµÄÎ»ÖÃĞòºÅ£¬ÖĞ¼ä´úÂëÉú³ÉÊ±¿ÉÓÃĞòºÅÈ¡µ½·ûºÅ±ğÃû
+    return symbolTable.index++; //è¿”å›çš„æ˜¯ç¬¦å·åœ¨ç¬¦å·è¡¨ä¸­çš„ä½ç½®åºå·ï¼Œä¸­é—´ä»£ç ç”Ÿæˆæ—¶å¯ç”¨åºå·å–åˆ°ç¬¦å·åˆ«å
 }
 
-//ÌîĞ´ÁÙÊ±±äÁ¿µ½·ûºÅ±í£¬·µ»ØÁÙÊ±±äÁ¿ÔÚ·ûºÅ±íÖĞµÄÎ»ÖÃ
+//å¡«å†™ä¸´æ—¶å˜é‡åˆ°ç¬¦å·è¡¨ï¼Œè¿”å›ä¸´æ—¶å˜é‡åœ¨ç¬¦å·è¡¨ä¸­çš„ä½ç½®
 int fill_Temp(char *name,int level,int type,char flag,int offset) {
     strcpy(symbolTable.symbols[symbolTable.index].name,"");
     strcpy(symbolTable.symbols[symbolTable.index].alias,name);
@@ -256,35 +256,35 @@ int fill_Temp(char *name,int level,int type,char flag,int offset) {
     symbolTable.symbols[symbolTable.index].type=type;
     symbolTable.symbols[symbolTable.index].flag=flag;
     symbolTable.symbols[symbolTable.index].offset=offset;
-    return symbolTable.index++; //·µ»ØµÄÊÇÁÙÊ±±äÁ¿ÔÚ·ûºÅ±íÖĞµÄÎ»ÖÃĞòºÅ
+    return symbolTable.index++; //è¿”å›çš„æ˜¯ä¸´æ—¶å˜é‡åœ¨ç¬¦å·è¡¨ä¸­çš„ä½ç½®åºå·
 }
 
 
 
-int LEV=0;      //²ãºÅ
-int func_size;  //1¸öº¯ÊıµÄ»î¶¯¼ÇÂ¼´óĞ¡
+int LEV=0;      //å±‚å·
+int func_size;  //1ä¸ªå‡½æ•°çš„æ´»åŠ¨è®°å½•å¤§å°
 
-void ext_var_list(struct ASTNode *T){  //´¦Àí±äÁ¿ÁĞ±í
+void ext_var_list(struct ASTNode *T){  //å¤„ç†å˜é‡åˆ—è¡¨
     int rtn,num=1;
     switch (T->kind){
         case EXT_DEC_LIST:
-                /*T->ptr[0]->type=T->type;              //½«ÀàĞÍÊôĞÔÏòÏÂ´«µİ±äÁ¿½áµã
-                T->ptr[0]->offset=T->offset;          //Íâ²¿±äÁ¿µÄÆ«ÒÆÁ¿ÏòÏÂ´«µİ
-                T->ptr[1]->type=T->type;              //½«ÀàĞÍÊôĞÔÏòÏÂ´«µİ±äÁ¿½áµã
-                T->ptr[1]->offset=T->offset+T->width; //Íâ²¿±äÁ¿µÄÆ«ÒÆÁ¿ÏòÏÂ´«µİ
+                /*T->ptr[0]->type=T->type;              //å°†ç±»å‹å±æ€§å‘ä¸‹ä¼ é€’å˜é‡ç»“ç‚¹
+                T->ptr[0]->offset=T->offset;          //å¤–éƒ¨å˜é‡çš„åç§»é‡å‘ä¸‹ä¼ é€’
+                T->ptr[1]->type=T->type;              //å°†ç±»å‹å±æ€§å‘ä¸‹ä¼ é€’å˜é‡ç»“ç‚¹
+                T->ptr[1]->offset=T->offset+T->width; //å¤–éƒ¨å˜é‡çš„åç§»é‡å‘ä¸‹ä¼ é€’
                 T->ptr[1]->width=T->width;
                 ext_var_list(T->ptr[0]);
                 ext_var_list(T->ptr[1]);
                 T->num=T->ptr[1]->num+1;
                 break;*/
-                T->ptr[0]->type=T->type;              //½«ÀàĞÍÊôĞÔÏòÏÂ´«µİ±äÁ¿½áµã
-                T->ptr[0]->offset=T->offset;          //Íâ²¿±äÁ¿µÄÆ«ÒÆÁ¿ÏòÏÂ´«µİ
-                T->ptr[1]->type=T->type;              //½«ÀàĞÍÊôĞÔÏòÏÂ´«µİ±äÁ¿½áµã
+                T->ptr[0]->type=T->type;              //å°†ç±»å‹å±æ€§å‘ä¸‹ä¼ é€’å˜é‡ç»“ç‚¹
+                T->ptr[0]->offset=T->offset;          //å¤–éƒ¨å˜é‡çš„åç§»é‡å‘ä¸‹ä¼ é€’
+                T->ptr[1]->type=T->type;              //å°†ç±»å‹å±æ€§å‘ä¸‹ä¼ é€’å˜é‡ç»“ç‚¹
 				if(T->ptr[0]->kind==ARRAY_LIST){
 					T->ptr[1]->offset=T->offset+T->width*compute_width(T->ptr[0]->ptr[0]);
 				}
 				else
-                	T->ptr[1]->offset=T->offset+T->width; //Íâ²¿±äÁ¿µÄÆ«ÒÆÁ¿ÏòÏÂ´«µİ
+                	T->ptr[1]->offset=T->offset+T->width; //å¤–éƒ¨å˜é‡çš„åç§»é‡å‘ä¸‹ä¼ é€’
                 T->ptr[1]->width=T->width;
 			
                 ext_var_list(T->ptr[0]);
@@ -292,18 +292,18 @@ void ext_var_list(struct ASTNode *T){  //´¦Àí±äÁ¿ÁĞ±í
                 T->num=T->ptr[1]->num+T->ptr[0]->num;
                 break;
         case ID:
-            rtn=fillSymbolTable(T->type_id,newAlias(),LEV,T->type,'V',T->offset);  //×îºóÒ»¸ö±äÁ¿Ãû
+            rtn=fillSymbolTable(T->type_id,newAlias(),LEV,T->type,'V',T->offset);  //æœ€åä¸€ä¸ªå˜é‡å
             if (rtn==-1)
-                semantic_error(T->pos,T->type_id, "±äÁ¿ÖØ¸´¶¨Òå");
+                semantic_error(T->pos,T->type_id, "å˜é‡é‡å¤å®šä¹‰");
             else T->place=rtn;
             T->num=1;
             break;
         
         //}
         case ARRAY_LIST:
-            rtn=fillSymbolTable(T->type_id,newAlias(),LEV,T->type,'A',T->offset);//Æ«ÒÆÁ¿Îª0
+            rtn=fillSymbolTable(T->type_id,newAlias(),LEV,T->type,'A',T->offset);//åç§»é‡ä¸º0
 			if (rtn==-1)
-                semantic_error(T->pos,T->type_id, "±äÁ¿ÖØ¸´¶¨Òå");
+                semantic_error(T->pos,T->type_id, "å˜é‡é‡å¤å®šä¹‰");
             else T->place=rtn;
             T->num=compute_width(T->ptr[0]);
 			break;
@@ -317,25 +317,25 @@ int  match_param(int i,struct ASTNode *T){
     if (num==0 && T==NULL) return 1;
     for (j=1;j<=num;j++) {
         if (!T){
-            semantic_error(pos,"", "º¯Êıµ÷ÓÃ²ÎÊıÌ«ÉÙ!");
+            semantic_error(pos,"", "å‡½æ•°è°ƒç”¨å‚æ•°å¤ªå°‘!");
             return 0;
             }
-        type1=symbolTable.symbols[i+j].type;  //ĞÎ²ÎÀàĞÍ
+        type1=symbolTable.symbols[i+j].type;  //å½¢å‚ç±»å‹
         type2=T->ptr[0]->type;
         if (type1!=type2){
-            semantic_error(pos,"", "²ÎÊıÀàĞÍ²»Æ¥Åä");
+            semantic_error(pos,"", "å‚æ•°ç±»å‹ä¸åŒ¹é…");
             return 0;
         }
         T=T->ptr[1];
     }
-    if (T){ //num¸ö²ÎÊıÒÑ¾­Æ¥ÅäÍê£¬»¹ÓĞÊµ²Î±í´ïÊ½
-        semantic_error(pos,"", "º¯Êıµ÷ÓÃ²ÎÊıÌ«¶à!");
+    if (T){ //numä¸ªå‚æ•°å·²ç»åŒ¹é…å®Œï¼Œè¿˜æœ‰å®å‚è¡¨è¾¾å¼
+        semantic_error(pos,"", "å‡½æ•°è°ƒç”¨å‚æ•°å¤ªå¤š!");
         return 0;
         }
     return 1;
     }
 
-void boolExp(struct ASTNode *T){  //²¼¶û±í´ïÊ½£¬²Î¿¼ÎÄÏ×[2]p84µÄË¼Ïë
+void boolExp(struct ASTNode *T){  //å¸ƒå°”è¡¨è¾¾å¼ï¼Œå‚è€ƒæ–‡çŒ®[2]p84çš„æ€æƒ³
   struct opn opn1,opn2,result;
   int op;
   int rtn;
@@ -348,7 +348,7 @@ void boolExp(struct ASTNode *T){  //²¼¶û±í´ïÊ½£¬²Î¿¼ÎÄÏ×[2]p84µÄË¼Ïë
                    break;
         case ID:    
                    break;
-        case RELOP: //´¦Àí¹ØÏµÔËËã±í´ïÊ½,2¸ö²Ù×÷Êı¶¼°´»ù±¾±í´ïÊ½´¦Àí
+        case RELOP: //å¤„ç†å…³ç³»è¿ç®—è¡¨è¾¾å¼,2ä¸ªæ“ä½œæ•°éƒ½æŒ‰åŸºæœ¬è¡¨è¾¾å¼å¤„ç†
                     T->ptr[0]->offset=T->ptr[1]->offset=T->offset;
                     Exp(T->ptr[0]);
                     T->width=T->ptr[0]->width;
@@ -407,88 +407,88 @@ void boolExp(struct ASTNode *T){  //²¼¶û±í´ïÊ½£¬²Î¿¼ÎÄÏ×[2]p84µÄË¼Ïë
 
 
 void Exp(struct ASTNode *T)
-{//´¦Àí»ù±¾±í´ïÊ½£¬²Î¿¼ÎÄÏ×[2]p82µÄË¼Ïë
+{//å¤„ç†åŸºæœ¬è¡¨è¾¾å¼ï¼Œå‚è€ƒæ–‡çŒ®[2]p82çš„æ€æƒ³
   int rtn,num,width;
   struct ASTNode *T0;
   struct opn opn1,opn2,result;
   if (T)
 	{
 	switch (T->kind) {
-	case ID:    //²é·ûºÅ±í£¬»ñµÃ·ûºÅ±íÖĞµÄÎ»ÖÃ£¬ÀàĞÍËÍtype
+	case ID:    //æŸ¥ç¬¦å·è¡¨ï¼Œè·å¾—ç¬¦å·è¡¨ä¸­çš„ä½ç½®ï¼Œç±»å‹é€type
                 rtn=searchSymbolTable(T->type_id);
                 if (rtn==-1)
-                    semantic_error(T->pos,T->type_id, "±äÁ¿Î´¶¨Òå");
+                    semantic_error(T->pos,T->type_id, "å˜é‡æœªå®šä¹‰");
                 if (symbolTable.symbols[rtn].flag=='F')
-                    semantic_error(T->pos,T->type_id, "ÊÇº¯ÊıÃû£¬ÀàĞÍ²»Æ¥Åä");
+                    semantic_error(T->pos,T->type_id, "æ˜¯å‡½æ•°åï¼Œç±»å‹ä¸åŒ¹é…");
                 else {
-                    T->place=rtn;       //½áµã±£´æ±äÁ¿ÔÚ·ûºÅ±íÖĞµÄÎ»ÖÃ
-                    T->code=NULL;       //±êÊ¶·û²»ĞèÒªÉú³ÉTAC
+                    T->place=rtn;       //ç»“ç‚¹ä¿å­˜å˜é‡åœ¨ç¬¦å·è¡¨ä¸­çš„ä½ç½®
+                    T->code=NULL;       //æ ‡è¯†ç¬¦ä¸éœ€è¦ç”ŸæˆTAC
                     T->type=symbolTable.symbols[rtn].type;
                     T->offset=symbolTable.symbols[rtn].offset;
-                    T->width=0;   //Î´ÔÙÊ¹ÓÃĞÂµ¥Ôª
+                    T->width=0;   //æœªå†ä½¿ç”¨æ–°å•å…ƒ
                     }
                 break;
 
     case ARRAY_ID:
 				rtn=searchSymbolTable(T->type_id);
 				if (rtn==-1)
-                    semantic_error(T->pos,T->type_id, "±äÁ¿Î´¶¨Òå");
+                    semantic_error(T->pos,T->type_id, "å˜é‡æœªå®šä¹‰");
                 else if (symbolTable.symbols[rtn].flag=='F')
-                    semantic_error(T->pos,T->type_id, "ÊÇº¯ÊıÃû£¬ÀàĞÍ²»Æ¥Åä");
+                    semantic_error(T->pos,T->type_id, "æ˜¯å‡½æ•°åï¼Œç±»å‹ä¸åŒ¹é…");
                 else if(symbolTable.symbols[rtn].flag!='A')
-                    semantic_error(T->pos,T->type_id, "±äÁ¿²»ÊÇÊı×é");
+                    semantic_error(T->pos,T->type_id, "å˜é‡ä¸æ˜¯æ•°ç»„");
                 else {
 					int index = 0;
 					T0 = T->ptr[0];
-                    T->place=rtn;       //½áµã±£´æ±äÁ¿ÔÚ·ûºÅ±íÖĞµÄÎ»ÖÃ
-                    T->code=NULL;       //±êÊ¶·û²»ĞèÒªÉú³ÉTAC
-                    T->type=symbolTable.symbols[rtn].type; // ±ê¼ÇIDÀàĞÍ
-                    T->offset=symbolTable.symbols[rtn].offset+(T->type==INT?4:8)*compute_width0(T->ptr[0],symbolTable.symbols[rtn].array,0); // ÄÚ´æÖĞÆ«ÒÆÖµ
-                    T->width=0;   //Î´ÔÙÊ¹ÓÃĞÂµ¥Ôª
+                    T->place=rtn;       //ç»“ç‚¹ä¿å­˜å˜é‡åœ¨ç¬¦å·è¡¨ä¸­çš„ä½ç½®
+                    T->code=NULL;       //æ ‡è¯†ç¬¦ä¸éœ€è¦ç”ŸæˆTAC
+                    T->type=symbolTable.symbols[rtn].type; // æ ‡è®°IDç±»å‹
+                    T->offset=symbolTable.symbols[rtn].offset+(T->type==INT?4:8)*compute_width0(T->ptr[0],symbolTable.symbols[rtn].array,0); // å†…å­˜ä¸­åç§»å€¼
+                    T->width=0;   //æœªå†ä½¿ç”¨æ–°å•å…ƒ
 					while(T0->kind==ARRAY_LIST){
 						Exp(T0->ptr[0]);
 						if(T0->ptr[0]->type!=INT)
                         {
-                            semantic_error(T->pos,"", "Êı×éÎ¬ÊıĞèÒªÕûĞÍ");
+                            semantic_error(T->pos,"", "æ•°ç»„ç»´æ•°éœ€è¦æ•´å‹");
                             break;                      
                         }
 						if(index==8){
-							semantic_error(T->pos,"", "Êı×éÎ¬¶È³¬¹ı×î´óÖµ");
+							semantic_error(T->pos,"", "æ•°ç»„ç»´åº¦è¶…è¿‡æœ€å¤§å€¼");
 							break;
 						}
 						else if(symbolTable.symbols[rtn].array[index]<=T0->ptr[0]->type_int){
-							semantic_error(T->pos,"", "Êı×éÎ¬¶È³¬¹ı¶¨ÒåÖµ");
+							semantic_error(T->pos,"", "æ•°ç»„ç»´åº¦è¶…è¿‡å®šä¹‰å€¼");
 							break;
 						}
 						index++;
 						T0=T0->ptr[1];
 					}
-					//´¦Àí×îºóÒ»Î¬
+					//å¤„ç†æœ€åä¸€ç»´
 					if(T0->kind!=ARRAY_LIST){
 						Exp(T0);
 						if(T0->type!=INT)
                         {
-                            semantic_error(T->pos,"", "Êı×éÎ¬ÊıĞèÒªÕûĞÍ");                     
+                            semantic_error(T->pos,"", "æ•°ç»„ç»´æ•°éœ€è¦æ•´å‹");                     
                         }
 						else if(index==8){
-							semantic_error(T->pos,"", "Êı×éÎ¬¶È³¬¹ı×î´óÖµ");
+							semantic_error(T->pos,"", "æ•°ç»„ç»´åº¦è¶…è¿‡æœ€å¤§å€¼");
 						}
 						else if(symbolTable.symbols[rtn].array[index]<=T0->type_int){
-							semantic_error(T->pos,"", "Êı×éÎ¬¶È³¬¹ı¶¨ÒåÖµ");
+							semantic_error(T->pos,"", "æ•°ç»„ç»´åº¦è¶…è¿‡å®šä¹‰å€¼");
 						}
 						else if(symbolTable.symbols[rtn].array[index+1]>0&&index<7){
-							semantic_error(T->pos,"", "Êı×éÎ¬¶È²»Âú×ã¶¨ÒåÖµ");
+							semantic_error(T->pos,"", "æ•°ç»„ç»´åº¦ä¸æ»¡è¶³å®šä¹‰å€¼");
 						}
 					}
-					/*T->place=rtn;       //½áµã±£´æ±äÁ¿ÔÚ·ûºÅ±íÖĞµÄÎ»ÖÃ
-                    T->code=NULL;       //±êÊ¶·û²»ĞèÒªÉú³ÉTAC
-                    T->type=symbolTable.symbols[rtn].type; // ±ê¼ÇIDÀàĞÍ
-                    T->offset=symbolTable.symbols[rtn].offset; // ÄÚ´æÖĞÆ«ÒÆÖµ
-                    T->width=0;   //Î´ÔÙÊ¹ÓÃĞÂµ¥Ôª*/
+					/*T->place=rtn;       //ç»“ç‚¹ä¿å­˜å˜é‡åœ¨ç¬¦å·è¡¨ä¸­çš„ä½ç½®
+                    T->code=NULL;       //æ ‡è¯†ç¬¦ä¸éœ€è¦ç”ŸæˆTAC
+                    T->type=symbolTable.symbols[rtn].type; // æ ‡è®°IDç±»å‹
+                    T->offset=symbolTable.symbols[rtn].offset; // å†…å­˜ä¸­åç§»å€¼
+                    T->width=0;   //æœªå†ä½¿ç”¨æ–°å•å…ƒ*/
 					}
 				break;
     
-    case INT:   T->place=fill_Temp(newTemp(),LEV,T->type,'T',T->offset); //ÎªÕû³£Á¿Éú³ÉÒ»¸öÁÙÊ±±äÁ¿
+    case INT:   T->place=fill_Temp(newTemp(),LEV,T->type,'T',T->offset); //ä¸ºæ•´å¸¸é‡ç”Ÿæˆä¸€ä¸ªä¸´æ—¶å˜é‡
                 T->type=INT;
                 opn1.kind=INT;opn1.const_int=T->type_int;
                 result.kind=ID; strcpy(result.id,symbolTable.symbols[T->place].alias);
@@ -496,7 +496,7 @@ void Exp(struct ASTNode *T)
                 T->code=genIR(ASSIGNOP,opn1,opn2,result);
                 T->width=4;
                 break;
-    case FLOAT: T->place=fill_Temp(newTemp(),LEV,T->type,'T',T->offset);   //Îª¸¡µã³£Á¿Éú³ÉÒ»¸öÁÙÊ±±äÁ¿
+    case FLOAT: T->place=fill_Temp(newTemp(),LEV,T->type,'T',T->offset);   //ä¸ºæµ®ç‚¹å¸¸é‡ç”Ÿæˆä¸€ä¸ªä¸´æ—¶å˜é‡
                 T->type=FLOAT;
                 opn1.kind=FLOAT; opn1.const_float=T->type_float;
                 result.kind=ID; strcpy(result.id,symbolTable.symbols[T->place].alias);
@@ -504,7 +504,7 @@ void Exp(struct ASTNode *T)
                 T->code=genIR(ASSIGNOP,opn1,opn2,result);
                 T->width=4;
                 break;
-    case CHAR:  T->place=fill_Temp(newTemp(),LEV,T->type,'T',T->offset);   //Îª×Ö·û³£Á¿Éú³ÉÒ»¸öÁÙÊ±±äÁ¿
+    case CHAR:  T->place=fill_Temp(newTemp(),LEV,T->type,'T',T->offset);   //ä¸ºå­—ç¬¦å¸¸é‡ç”Ÿæˆä¸€ä¸ªä¸´æ—¶å˜é‡
                 T->type=CHAR;
                 opn1.kind=CHAR; opn1.const_char=T->type_char;
                 result.kind=ID; strcpy(result.id,symbolTable.symbols[T->place].alias);
@@ -521,23 +521,23 @@ void Exp(struct ASTNode *T)
                 opn2.type=T->type;opn2.offset=symbolTable.symbols[T->place].offset;
 	case ASSIGNOP:
                 if ((T->ptr[0]->kind!=ID)&&(T->ptr[0]->kind!=ARRAY_ID)){
-                    semantic_error(T->pos,"", "¸³ÖµÓï¾äĞèÒª×óÖµ");
+                    semantic_error(T->pos,"", "èµ‹å€¼è¯­å¥éœ€è¦å·¦å€¼");
                 }
                 else {
-                    Exp(T->ptr[0]);   //´¦Àí×óÖµ£¬ÀıÖĞ½öÎª±äÁ¿
+                    Exp(T->ptr[0]);   //å¤„ç†å·¦å€¼ï¼Œä¾‹ä¸­ä»…ä¸ºå˜é‡
                     T->ptr[1]->offset=T->offset;
                     Exp(T->ptr[1]);
 
                     if(T->ptr[0]->type!=T->ptr[1]->type){
-                        semantic_error(T->pos,"", "¸³ÖµÔËËã×óÓÒÀàĞÍ²»Æ¥Åä");
+                        semantic_error(T->pos,"", "èµ‹å€¼è¿ç®—å·¦å³ç±»å‹ä¸åŒ¹é…");
                         break;
                     }
                     if (T->ptr[0]->type==CHAR && T->kind!=ASSIGNOP){
-                        semantic_error(T->pos,T->ptr[0]->type_id,"ÊÇ×Ö·ûÀàĞÍ±äÁ¿£¬²»ÄÜ²ÎÓëÔËËã");
+                        semantic_error(T->pos,T->ptr[0]->type_id,"æ˜¯å­—ç¬¦ç±»å‹å˜é‡ï¼Œä¸èƒ½å‚ä¸è¿ç®—");
                         break;
                     }
                     if (T->ptr[1]->type==CHAR && T->kind!=ASSIGNOP){
-                        semantic_error(T->pos,T->ptr[1]->type_id,"ÊÇ×Ö·ûÀàĞÍ±äÁ¿£¬²»ÄÜ²ÎÓëÔËËã");
+                        semantic_error(T->pos,T->ptr[1]->type_id,"æ˜¯å­—ç¬¦ç±»å‹å˜é‡ï¼Œä¸èƒ½å‚ä¸è¿ç®—");
                         break;
                     }
                     
@@ -545,14 +545,14 @@ void Exp(struct ASTNode *T)
                     T->width=T->ptr[1]->width;
                     T->code=merge(2,T->ptr[0]->code,T->ptr[1]->code);
                     if(T->ptr[1]->kind!=ARRAY_ID){
-                        opn1.kind=ID;   strcpy(opn1.id,symbolTable.symbols[T->ptr[1]->place].alias);//ÓÒÖµÒ»¶¨ÊÇ¸ö±äÁ¿»òÁÙÊ±±äÁ¿
+                        opn1.kind=ID;   strcpy(opn1.id,symbolTable.symbols[T->ptr[1]->place].alias);//å³å€¼ä¸€å®šæ˜¯ä¸ªå˜é‡æˆ–ä¸´æ—¶å˜é‡
                         opn1.offset=symbolTable.symbols[T->ptr[1]->place].offset;
                     }else{
                         opn1.kind=ID;
 						char s[10];
 						char str[80];
 						strcpy (str,symbolTable.symbols[T->ptr[1]->place].alias);
-						strcat (str," Æ«ÒÆµØÖ· ");
+						strcat (str," åç§»åœ°å€ ");
 						//ito(T->ptr[0]->offset,s,0);
                         sprintf(s,"%d",T->ptr[1]->offset);
                         //itoa(no++,s,10);
@@ -574,7 +574,7 @@ void Exp(struct ASTNode *T)
 						char s[10];
 						char str[80];
 						strcpy (str,symbolTable.symbols[T->ptr[0]->place].alias);
-						strcat (str," Æ«ÒÆµØÖ· ");
+						strcat (str," åç§»åœ°å€ ");
 						//ito(T->ptr[0]->offset,s,0);
                         sprintf(s,"%d",T->ptr[0]->offset);
                         //itoa(no++,s,10);
@@ -588,9 +588,9 @@ void Exp(struct ASTNode *T)
                     T->code=merge(2,T->code,genIR(T->kind,opn1,opn2,result));
                     }
                 break;
-	case AND:   //°´ËãÊõ±í´ïÊ½·½Ê½¼ÆËã²¼¶ûÖµ£¬Î´Ğ´Íê
-	case OR:    //°´ËãÊõ±í´ïÊ½·½Ê½¼ÆËã²¼¶ûÖµ£¬Î´Ğ´Íê
-	case RELOP: //°´ËãÊõ±í´ïÊ½·½Ê½¼ÆËã²¼¶ûÖµ£¬Î´Ğ´Íê
+	case AND:   //æŒ‰ç®—æœ¯è¡¨è¾¾å¼æ–¹å¼è®¡ç®—å¸ƒå°”å€¼ï¼Œæœªå†™å®Œ
+	case OR:    //æŒ‰ç®—æœ¯è¡¨è¾¾å¼æ–¹å¼è®¡ç®—å¸ƒå°”å€¼ï¼Œæœªå†™å®Œ
+	case RELOP: //æŒ‰ç®—æœ¯è¡¨è¾¾å¼æ–¹å¼è®¡ç®—å¸ƒå°”å€¼ï¼Œæœªå†™å®Œ
                 T->type=INT;
                 T->ptr[0]->offset=T->ptr[1]->offset=T->offset;
                 Exp(T->ptr[0]);
@@ -600,16 +600,16 @@ void Exp(struct ASTNode *T)
     case PLUSPLUS:
                 Exp(T->ptr[0]);
                 if (T->ptr[0]->kind!=ID&&!strcmp(T->type_id,"RPLUSPLUS")){
-                    semantic_error(T->pos,"", "×ó×ÔÔöÓï¾äĞèÒª×óÖµ");
+                    semantic_error(T->pos,"", "å·¦è‡ªå¢è¯­å¥éœ€è¦å·¦å€¼");
                 }
                 if (T->ptr[0]->kind!=ID&&!strcmp(T->type_id,"LPLUSPLUS")){
-                    semantic_error(T->pos,"", "ÓÒ×ÔÔöÓï¾äĞèÒª×óÖµ");
+                    semantic_error(T->pos,"", "å³è‡ªå¢è¯­å¥éœ€è¦å·¦å€¼");
                 }
                 if(T->ptr[0]->type!=INT&&!strcmp(T->type_id,"RPLUSPLUS")){
-                    semantic_error(T->pos,"", "×ó×ÔÔöÓï¾ä×óÖµ²»ÎªintÀàĞÍ");
+                    semantic_error(T->pos,"", "å·¦è‡ªå¢è¯­å¥å·¦å€¼ä¸ä¸ºintç±»å‹");
                 }
                 if(T->ptr[0]->type!=INT&&!strcmp(T->type_id,"LPLUSPLUS")){
-                    semantic_error(T->pos,"", "ÓÒ×ÔÔöÓï¾ä×óÖµ²»ÎªintÀàĞÍ");
+                    semantic_error(T->pos,"", "å³è‡ªå¢è¯­å¥å·¦å€¼ä¸ä¸ºintç±»å‹");
                 }
                  T->type = T->ptr[0]->type;
 			    T->ptr[0]->offset = T->offset;
@@ -628,16 +628,16 @@ void Exp(struct ASTNode *T)
     case MINUSMINUS:
                 Exp(T->ptr[0]);
                 if (T->ptr[0]->kind!=ID&&!strcmp(T->type_id,"RMINUSMINUS")){
-                    semantic_error(T->pos,"", "×ó×Ô¼õÓï¾äĞèÒª×óÖµ");
+                    semantic_error(T->pos,"", "å·¦è‡ªå‡è¯­å¥éœ€è¦å·¦å€¼");
                 }
                 if (T->ptr[0]->kind!=ID&&!strcmp(T->type_id,"LMINUSMINUS")){
-                    semantic_error(T->pos,"", "ÓÒ×Ô¼õÓï¾äĞèÒª×óÖµ");
+                    semantic_error(T->pos,"", "å³è‡ªå‡è¯­å¥éœ€è¦å·¦å€¼");
                 }
                 if(T->ptr[0]->type!=INT&&!strcmp(T->type_id,"RMINUSMINUS")){
-                    semantic_error(T->pos,"", "×ó×Ô¼õÓï¾ä×óÖµ²»ÎªintÀàĞÍ");
+                    semantic_error(T->pos,"", "å·¦è‡ªå‡è¯­å¥å·¦å€¼ä¸ä¸ºintç±»å‹");
                 }
                 if(T->ptr[0]->type!=INT&&!strcmp(T->type_id,"LMINUSMINUS")){
-                    semantic_error(T->pos,"", "ÓÒ×Ô¼õÓï¾ä×óÖµ²»ÎªintÀàĞÍ");
+                    semantic_error(T->pos,"", "å³è‡ªå‡è¯­å¥å·¦å€¼ä¸ä¸ºintç±»å‹");
                 }
                 T->type = T->ptr[0]->type;
 			    T->ptr[0]->offset = T->offset;
@@ -660,12 +660,12 @@ void Exp(struct ASTNode *T)
                 Exp(T->ptr[0]);
                 T->ptr[1]->offset=T->offset+T->ptr[0]->width;
                 Exp(T->ptr[1]);
-                //ÅĞ¶ÏT->ptr[0]£¬T->ptr[1]ÀàĞÍÊÇ·ñÕıÈ·£¬¿ÉÄÜ¸ù¾İÔËËã·ûÉú³É²»Í¬ĞÎÊ½µÄ´úÂë£¬¸øTµÄtype¸³Öµ
-                //ÏÂÃæµÄÀàĞÍÊôĞÔ¼ÆËã£¬Ã»ÓĞ¿¼ÂÇ´íÎó´¦ÀíÇé¿ö
+                //åˆ¤æ–­T->ptr[0]ï¼ŒT->ptr[1]ç±»å‹æ˜¯å¦æ­£ç¡®ï¼Œå¯èƒ½æ ¹æ®è¿ç®—ç¬¦ç”Ÿæˆä¸åŒå½¢å¼çš„ä»£ç ï¼Œç»™Tçš„typeèµ‹å€¼
+                //ä¸‹é¢çš„ç±»å‹å±æ€§è®¡ç®—ï¼Œæ²¡æœ‰è€ƒè™‘é”™è¯¯å¤„ç†æƒ…å†µ
                 if (T->ptr[0]->type==CHAR)
-                     semantic_error(T->pos,T->ptr[0]->type_id,"ÊÇ×Ö·ûÀàĞÍ±äÁ¿£¬²»ÄÜ²ÎÓëÔËËã");
+                     semantic_error(T->pos,T->ptr[0]->type_id,"æ˜¯å­—ç¬¦ç±»å‹å˜é‡ï¼Œä¸èƒ½å‚ä¸è¿ç®—");
                 else if(T->ptr[1]->type==CHAR)
-                     semantic_error(T->pos,T->ptr[1]->type_id,"ÊÇ×Ö·ûÀàĞÍ±äÁ¿£¬²»ÄÜ²ÎÓëÔËËã");
+                     semantic_error(T->pos,T->ptr[1]->type_id,"æ˜¯å­—ç¬¦ç±»å‹å˜é‡ï¼Œä¸èƒ½å‚ä¸è¿ç®—");
                 else
                 {
                     if (T->ptr[0]->type==FLOAT || T->ptr[1]->type==FLOAT)
@@ -682,31 +682,31 @@ void Exp(struct ASTNode *T)
                     T->width=T->ptr[0]->width+T->ptr[1]->width+(T->type==INT?4:8);
                 }
                 break;
-	case NOT:   //Î´Ğ´ÍêÕû
+	case NOT:   //æœªå†™å®Œæ•´
                 break;
-	case UMINUS://Î´Ğ´ÍêÕû
+	case UMINUS://æœªå†™å®Œæ•´
                 break;
-    case FUNC_CALL: //¸ù¾İT->type_id²é³öº¯ÊıµÄ¶¨Òå£¬Èç¹ûÓïÑÔÖĞÔö¼ÓÁËÊµÑé½Ì²ÄµÄread£¬writeĞèÒªµ¥¶À´¦ÀíÒ»ÏÂ
+    case FUNC_CALL: //æ ¹æ®T->type_idæŸ¥å‡ºå‡½æ•°çš„å®šä¹‰ï¼Œå¦‚æœè¯­è¨€ä¸­å¢åŠ äº†å®éªŒæ•™æçš„readï¼Œwriteéœ€è¦å•ç‹¬å¤„ç†ä¸€ä¸‹
                 rtn=searchSymbolTable(T->type_id);
                 if (rtn==-1){
-                    semantic_error(T->pos,T->type_id, "º¯ÊıÎ´¶¨Òå");
+                    semantic_error(T->pos,T->type_id, "å‡½æ•°æœªå®šä¹‰");
                     break;
                     }
                 if (symbolTable.symbols[rtn].flag!='F'){
-                    semantic_error(T->pos,T->type_id, "²»ÊÇÒ»¸öº¯Êı");
+                    semantic_error(T->pos,T->type_id, "ä¸æ˜¯ä¸€ä¸ªå‡½æ•°");
                      break;
                     }
                 T->type=symbolTable.symbols[rtn].type;
-                width=T->type==INT?4:8;   //´æ·Åº¯Êı·µ»ØÖµµÄµ¥Êı×Ö½ÚÊı
+                width=T->type==INT?4:8;   //å­˜æ”¾å‡½æ•°è¿”å›å€¼çš„å•æ•°å­—èŠ‚æ•°
                 if (T->ptr[0]){
                     T->ptr[0]->offset=T->offset;
-                    Exp(T->ptr[0]);       //´¦ÀíËùÓĞÊµ²Î±í´ïÊ½ÇóÖµ£¬¼°ÀàĞÍ
-                    T->width=T->ptr[0]->width+width; //ÀÛ¼ÓÉÏ¼ÆËãÊµ²ÎÊ¹ÓÃÁÙÊ±±äÁ¿µÄµ¥ÔªÊı
+                    Exp(T->ptr[0]);       //å¤„ç†æ‰€æœ‰å®å‚è¡¨è¾¾å¼æ±‚å€¼ï¼ŒåŠç±»å‹
+                    T->width=T->ptr[0]->width+width; //ç´¯åŠ ä¸Šè®¡ç®—å®å‚ä½¿ç”¨ä¸´æ—¶å˜é‡çš„å•å…ƒæ•°
                     T->code=T->ptr[0]->code;
                     }
                 else {T->width=width; T->code=NULL;}
-                match_param(rtn,T);   //´¦ÀíËùÓĞ²ÎÊıµÄÆ¥Åä
-                    //´¦Àí²ÎÊıÁĞ±íµÄÖĞ¼ä´úÂë
+                match_param(rtn,T);   //å¤„ç†æ‰€æœ‰å‚æ•°çš„åŒ¹é…
+                    //å¤„ç†å‚æ•°åˆ—è¡¨çš„ä¸­é—´ä»£ç 
                 T0=T->ptr[0];
                 while (T0) {
                     result.kind=ID;  strcpy(result.id,symbolTable.symbols[T0->ptr[0]->place].alias);
@@ -715,13 +715,13 @@ void Exp(struct ASTNode *T)
                     T0=T0->ptr[1];
                     }
                 T->place=fill_Temp(newTemp(),LEV,T->type,'T',T->offset+T->width-width);
-                opn1.kind=ID;     strcpy(opn1.id,T->type_id);  //±£´æº¯ÊıÃû
-                opn1.offset=rtn;  //ÕâÀïoffsetÓÃÒÔ±£´æº¯Êı¶¨ÒåÈë¿Ú,ÔÚÄ¿±ê´úÂëÉú³ÉÊ±£¬ÄÜ»ñÈ¡ÏàÓ¦ĞÅÏ¢
+                opn1.kind=ID;     strcpy(opn1.id,T->type_id);  //ä¿å­˜å‡½æ•°å
+                opn1.offset=rtn;  //è¿™é‡Œoffsetç”¨ä»¥ä¿å­˜å‡½æ•°å®šä¹‰å…¥å£,åœ¨ç›®æ ‡ä»£ç ç”Ÿæˆæ—¶ï¼Œèƒ½è·å–ç›¸åº”ä¿¡æ¯
                 result.kind=ID;   strcpy(result.id,symbolTable.symbols[T->place].alias);
                 result.offset=symbolTable.symbols[T->place].offset;
-                T->code=merge(2,T->code,genIR(CALL,opn1,opn2,result)); //Éú³Éº¯Êıµ÷ÓÃÖĞ¼ä´úÂë
+                T->code=merge(2,T->code,genIR(CALL,opn1,opn2,result)); //ç”Ÿæˆå‡½æ•°è°ƒç”¨ä¸­é—´ä»£ç 
                 break;
-    case ARGS:      //´Ë´¦½ö´¦Àí¸÷Êµ²Î±í´ïÊ½µÄÇóÖµµÄ´úÂëĞòÁĞ£¬²»Éú³ÉARGµÄÊµ²ÎÏµÁĞ
+    case ARGS:      //æ­¤å¤„ä»…å¤„ç†å„å®å‚è¡¨è¾¾å¼çš„æ±‚å€¼çš„ä»£ç åºåˆ—ï¼Œä¸ç”ŸæˆARGçš„å®å‚ç³»åˆ—
                 T->ptr[0]->offset=T->offset;
                 Exp(T->ptr[0]);
                 T->width=T->ptr[0]->width;
@@ -738,7 +738,7 @@ void Exp(struct ASTNode *T)
 }
 
 void semantic_Analysis(struct ASTNode *T)
-{//¶Ô³éÏóÓï·¨Ê÷µÄÏÈ¸ù±éÀú,°´displayµÄ¿ØÖÆ½á¹¹ĞŞ¸ÄÍê³É·ûºÅ±í¹ÜÀíºÍÓïÒå¼ì²éºÍTACÉú³É£¨Óï¾ä²¿·Ö£©
+{//å¯¹æŠ½è±¡è¯­æ³•æ ‘çš„å…ˆæ ¹éå†,æŒ‰displayçš„æ§åˆ¶ç»“æ„ä¿®æ”¹å®Œæˆç¬¦å·è¡¨ç®¡ç†å’Œè¯­ä¹‰æ£€æŸ¥å’ŒTACç”Ÿæˆï¼ˆè¯­å¥éƒ¨åˆ†ï¼‰
   int rtn,num,width;
   struct ASTNode *T0;
   struct opn opn1,opn2,result;
@@ -748,65 +748,65 @@ void semantic_Analysis(struct ASTNode *T)
 	case EXT_DEF_LIST:
             if (!T->ptr[0]) break;
             T->ptr[0]->offset=T->offset;
-            semantic_Analysis(T->ptr[0]);    //·ÃÎÊÍâ²¿¶¨ÒåÁĞ±íÖĞµÄµÚÒ»¸ö
+            semantic_Analysis(T->ptr[0]);    //è®¿é—®å¤–éƒ¨å®šä¹‰åˆ—è¡¨ä¸­çš„ç¬¬ä¸€ä¸ª
             T->code=T->ptr[0]->code;
             if (T->ptr[1]){
                 T->ptr[1]->offset=T->ptr[0]->offset+T->ptr[0]->width;
-                semantic_Analysis(T->ptr[1]); //·ÃÎÊ¸ÃÍâ²¿¶¨ÒåÁĞ±íÖĞµÄÆäËüÍâ²¿¶¨Òå
+                semantic_Analysis(T->ptr[1]); //è®¿é—®è¯¥å¤–éƒ¨å®šä¹‰åˆ—è¡¨ä¸­çš„å…¶å®ƒå¤–éƒ¨å®šä¹‰
                 T->code=merge(2,T->code,T->ptr[1]->code);
                 }
             break;
-	case EXT_VAR_DEF:   //´¦ÀíÍâ²¿ËµÃ÷,½«µÚÒ»¸öº¢×Ó(TYPE½áµã)ÖĞµÄÀàĞÍËÍµ½µÚ¶ş¸öº¢×ÓµÄÀàĞÍÓò
+	case EXT_VAR_DEF:   //å¤„ç†å¤–éƒ¨è¯´æ˜,å°†ç¬¬ä¸€ä¸ªå­©å­(TYPEç»“ç‚¹)ä¸­çš„ç±»å‹é€åˆ°ç¬¬äºŒä¸ªå­©å­çš„ç±»å‹åŸŸ
             T->type=T->ptr[1]->type=!strcmp(T->ptr[0]->type_id,"int")?INT:(!strcmp(T->ptr[0]->type_id,"float")?FLOAT:CHAR);
-            T->ptr[1]->offset=T->offset;        //Õâ¸öÍâ²¿±äÁ¿µÄÆ«ÒÆÁ¿ÏòÏÂ´«µİ
-            T->ptr[1]->width=T->type==INT?4:8;  //½«Ò»¸ö±äÁ¿µÄ¿í¶ÈÏòÏÂ´«µİ
-            ext_var_list(T->ptr[1]);            //´¦ÀíÍâ²¿±äÁ¿ËµÃ÷ÖĞµÄ±êÊ¶·ûĞòÁĞ
-            T->width=(T->type==INT?4:8)* T->ptr[1]->num; //¼ÆËãÕâ¸öÍâ²¿±äÁ¿ËµÃ÷µÄ¿í¶È
-            T->code=NULL;             //ÕâÀï¼Ù¶¨Íâ²¿±äÁ¿²»Ö§³Ö³õÊ¼»¯
+            T->ptr[1]->offset=T->offset;        //è¿™ä¸ªå¤–éƒ¨å˜é‡çš„åç§»é‡å‘ä¸‹ä¼ é€’
+            T->ptr[1]->width=T->type==INT?4:8;  //å°†ä¸€ä¸ªå˜é‡çš„å®½åº¦å‘ä¸‹ä¼ é€’
+            ext_var_list(T->ptr[1]);            //å¤„ç†å¤–éƒ¨å˜é‡è¯´æ˜ä¸­çš„æ ‡è¯†ç¬¦åºåˆ—
+            T->width=(T->type==INT?4:8)* T->ptr[1]->num; //è®¡ç®—è¿™ä¸ªå¤–éƒ¨å˜é‡è¯´æ˜çš„å®½åº¦
+            T->code=NULL;             //è¿™é‡Œå‡å®šå¤–éƒ¨å˜é‡ä¸æ”¯æŒåˆå§‹åŒ–
             break;
-	case FUNC_DEF:      //ÌîĞ´º¯Êı¶¨ÒåĞÅÏ¢µ½·ûºÅ±í
-            T->ptr[1]->type=!strcmp(T->ptr[0]->type_id,"int")?INT:(!strcmp(T->ptr[0]->type_id,"float")?FLOAT:CHAR);//»ñÈ¡º¯Êı·µ»ØÀàĞÍËÍµ½º¬º¯ÊıÃû¡¢²ÎÊıµÄ½áµã
-            T->width=0;     //º¯ÊıµÄ¿í¶ÈÉèÖÃÎª0£¬²»»á¶ÔÍâ²¿±äÁ¿µÄµØÖ··ÖÅä²úÉúÓ°Ïì
-            T->offset=DX;   //ÉèÖÃ¾Ö²¿±äÁ¿ÔÚ»î¶¯¼ÇÂ¼ÖĞµÄÆ«ÒÆÁ¿³õÖµ
-            semantic_Analysis(T->ptr[1]); //´¦Àíº¯ÊıÃûºÍ²ÎÊı½áµã²¿·Ö£¬ÕâÀï²»¿¼ÂÇÓÃ¼Ä´æÆ÷´«µİ²ÎÊı
-            T->offset+=T->ptr[1]->width;   //ÓÃĞÎ²Îµ¥Ôª¿í¶ÈĞŞ¸Äº¯Êı¾Ö²¿±äÁ¿µÄÆğÊ¼Æ«ÒÆÁ¿
+	case FUNC_DEF:      //å¡«å†™å‡½æ•°å®šä¹‰ä¿¡æ¯åˆ°ç¬¦å·è¡¨
+            T->ptr[1]->type=!strcmp(T->ptr[0]->type_id,"int")?INT:(!strcmp(T->ptr[0]->type_id,"float")?FLOAT:CHAR);//è·å–å‡½æ•°è¿”å›ç±»å‹é€åˆ°å«å‡½æ•°åã€å‚æ•°çš„ç»“ç‚¹
+            T->width=0;     //å‡½æ•°çš„å®½åº¦è®¾ç½®ä¸º0ï¼Œä¸ä¼šå¯¹å¤–éƒ¨å˜é‡çš„åœ°å€åˆ†é…äº§ç”Ÿå½±å“
+            T->offset=DX;   //è®¾ç½®å±€éƒ¨å˜é‡åœ¨æ´»åŠ¨è®°å½•ä¸­çš„åç§»é‡åˆå€¼
+            semantic_Analysis(T->ptr[1]); //å¤„ç†å‡½æ•°åå’Œå‚æ•°ç»“ç‚¹éƒ¨åˆ†ï¼Œè¿™é‡Œä¸è€ƒè™‘ç”¨å¯„å­˜å™¨ä¼ é€’å‚æ•°
+            T->offset+=T->ptr[1]->width;   //ç”¨å½¢å‚å•å…ƒå®½åº¦ä¿®æ”¹å‡½æ•°å±€éƒ¨å˜é‡çš„èµ·å§‹åç§»é‡
             T->ptr[2]->offset=T->offset;
             T->ptr[2]->func_type=!strcmp(T->ptr[0]->type_id,"int")?INT:(!strcmp(T->ptr[0]->type_id,"float")?FLOAT:CHAR);
-            strcpy(T->ptr[2]->Snext,newLabel());  //º¯ÊıÌåÓï¾äÖ´ĞĞ½áÊøºóµÄÎ»ÖÃÊôĞÔ
-            semantic_Analysis(T->ptr[2]);         //´¦Àíº¯ÊıÌå½áµã
-            //¼ÆËã»î¶¯¼ÇÂ¼´óĞ¡,ÕâÀïoffsetÊôĞÔ´æ·ÅµÄÊÇ»î¶¯¼ÇÂ¼´óĞ¡£¬²»ÊÇÆ«ÒÆ
+            strcpy(T->ptr[2]->Snext,newLabel());  //å‡½æ•°ä½“è¯­å¥æ‰§è¡Œç»“æŸåçš„ä½ç½®å±æ€§
+            semantic_Analysis(T->ptr[2]);         //å¤„ç†å‡½æ•°ä½“ç»“ç‚¹
+            //è®¡ç®—æ´»åŠ¨è®°å½•å¤§å°,è¿™é‡Œoffsetå±æ€§å­˜æ”¾çš„æ˜¯æ´»åŠ¨è®°å½•å¤§å°ï¼Œä¸æ˜¯åç§»
             symbolTable.symbols[T->ptr[1]->place].offset=T->offset+T->ptr[2]->width;
-            T->code=merge(3,T->ptr[1]->code,T->ptr[2]->code,genLabel(T->ptr[2]->Snext));          //º¯ÊıÌåµÄ´úÂë×÷Îªº¯ÊıµÄ´úÂë
+            T->code=merge(3,T->ptr[1]->code,T->ptr[2]->code,genLabel(T->ptr[2]->Snext));          //å‡½æ•°ä½“çš„ä»£ç ä½œä¸ºå‡½æ•°çš„ä»£ç 
             break;
-	case FUNC_DEC:      //¸ù¾İ·µ»ØÀàĞÍ£¬º¯ÊıÃûÌîĞ´·ûºÅ±í
-            rtn=fillSymbolTable(T->type_id,newAlias(),LEV,T->type,'F',0);//º¯Êı²»ÔÚÊı¾İÇøÖĞ·ÖÅäµ¥Ôª£¬Æ«ÒÆÁ¿Îª0
+	case FUNC_DEC:      //æ ¹æ®è¿”å›ç±»å‹ï¼Œå‡½æ•°åå¡«å†™ç¬¦å·è¡¨
+            rtn=fillSymbolTable(T->type_id,newAlias(),LEV,T->type,'F',0);//å‡½æ•°ä¸åœ¨æ•°æ®åŒºä¸­åˆ†é…å•å…ƒï¼Œåç§»é‡ä¸º0
             if (rtn==-1){
-                semantic_error(T->pos,T->type_id, "º¯ÊıÖØ¸´¶¨Òå");
+                semantic_error(T->pos,T->type_id, "å‡½æ•°é‡å¤å®šä¹‰");
                 break;
                 }
             else T->place=rtn;
             result.kind=ID;   strcpy(result.id,T->type_id);
             result.offset=rtn;
-            T->code=genIR(FUNCTION,opn1,opn2,result);     //Éú³ÉÖĞ¼ä´úÂë£ºFUNCTION º¯ÊıÃû
-            T->offset=DX;   //ÉèÖÃĞÎÊ½²ÎÊıÔÚ»î¶¯¼ÇÂ¼ÖĞµÄÆ«ÒÆÁ¿³õÖµ
-            if (T->ptr[0]) { //ÅĞ¶ÏÊÇ·ñÓĞ²ÎÊı
+            T->code=genIR(FUNCTION,opn1,opn2,result);     //ç”Ÿæˆä¸­é—´ä»£ç ï¼šFUNCTION å‡½æ•°å
+            T->offset=DX;   //è®¾ç½®å½¢å¼å‚æ•°åœ¨æ´»åŠ¨è®°å½•ä¸­çš„åç§»é‡åˆå€¼
+            if (T->ptr[0]) { //åˆ¤æ–­æ˜¯å¦æœ‰å‚æ•°
                 T->ptr[0]->offset=T->offset;
-                semantic_Analysis(T->ptr[0]);  //´¦Àíº¯Êı²ÎÊıÁĞ±í
+                semantic_Analysis(T->ptr[0]);  //å¤„ç†å‡½æ•°å‚æ•°åˆ—è¡¨
                 T->width=T->ptr[0]->width;
                 symbolTable.symbols[rtn].paramnum=T->ptr[0]->num;
-                T->code=merge(2,T->code,T->ptr[0]->code);  //Á¬½Óº¯ÊıÃûºÍ²ÎÊı´úÂëĞòÁĞ
+                T->code=merge(2,T->code,T->ptr[0]->code);  //è¿æ¥å‡½æ•°åå’Œå‚æ•°ä»£ç åºåˆ—
                 }
             else symbolTable.symbols[rtn].paramnum=0,T->width=0;
             break;
-	case PARAM_LIST:    //´¦Àíº¯ÊıĞÎÊ½²ÎÊıÁĞ±í
+	case PARAM_LIST:    //å¤„ç†å‡½æ•°å½¢å¼å‚æ•°åˆ—è¡¨
             T->ptr[0]->offset=T->offset;
             semantic_Analysis(T->ptr[0]);
             if (T->ptr[1]){
                 T->ptr[1]->offset=T->offset+T->ptr[0]->width;
                 semantic_Analysis(T->ptr[1]);
-                T->num=T->ptr[0]->num+T->ptr[1]->num;        //Í³¼Æ²ÎÊı¸öÊı
-                T->width=T->ptr[0]->width+T->ptr[1]->width;  //ÀÛ¼Ó²ÎÊıµ¥Ôª¿í¶È
-                T->code=merge(2,T->ptr[0]->code,T->ptr[1]->code);  //Á¬½Ó²ÎÊı´úÂë
+                T->num=T->ptr[0]->num+T->ptr[1]->num;        //ç»Ÿè®¡å‚æ•°ä¸ªæ•°
+                T->width=T->ptr[0]->width+T->ptr[1]->width;  //ç´¯åŠ å‚æ•°å•å…ƒå®½åº¦
+                T->code=merge(2,T->ptr[0]->code,T->ptr[1]->code);  //è¿æ¥å‚æ•°ä»£ç 
                 }
             else {
                 T->num=T->ptr[0]->num;
@@ -817,81 +817,81 @@ void semantic_Analysis(struct ASTNode *T)
 	case  PARAM_DEC:
             rtn=fillSymbolTable(T->ptr[1]->type_id,newAlias(),1,T->ptr[0]->type,'P',T->offset);
             if (rtn==-1)
-                semantic_error(T->ptr[1]->pos,T->ptr[1]->type_id, "²ÎÊıÃûÖØ¸´¶¨Òå");
+                semantic_error(T->ptr[1]->pos,T->ptr[1]->type_id, "å‚æ•°åé‡å¤å®šä¹‰");
             else T->ptr[1]->place=rtn;
-            T->num=1;       //²ÎÊı¸öÊı¼ÆËãµÄ³õÊ¼Öµ
-            T->width=T->ptr[0]->type==INT?4:8;  //²ÎÊı¿í¶È
+            T->num=1;       //å‚æ•°ä¸ªæ•°è®¡ç®—çš„åˆå§‹å€¼
+            T->width=T->ptr[0]->type==INT?4:8;  //å‚æ•°å®½åº¦
             result.kind=ID;   strcpy(result.id, symbolTable.symbols[rtn].alias);
             result.offset=T->offset;
-            T->code=genIR(PARAM,opn1,opn2,result);     //Éú³É£ºFUNCTION º¯ÊıÃû
+            T->code=genIR(PARAM,opn1,opn2,result);     //ç”Ÿæˆï¼šFUNCTION å‡½æ•°å
             break;
 	case COMP_STM:
             if(forFlag==0){
                 LEV++;
                 symbol_scope_TX.TX[symbol_scope_TX.top++]=symbolTable.index;
             }
-            //ÉèÖÃ²ãºÅ¼Ó1£¬²¢ÇÒ±£´æ¸Ã²ã¾Ö²¿±äÁ¿ÔÚ·ûºÅ±íÖĞµÄÆğÊ¼Î»ÖÃÔÚsymbol_scope_TX
+            //è®¾ç½®å±‚å·åŠ 1ï¼Œå¹¶ä¸”ä¿å­˜è¯¥å±‚å±€éƒ¨å˜é‡åœ¨ç¬¦å·è¡¨ä¸­çš„èµ·å§‹ä½ç½®åœ¨symbol_scope_TX
             T->width=0;
             T->code=NULL;
             if (T->ptr[0]) {
                 T->ptr[0]->offset=T->offset;
-                semantic_Analysis(T->ptr[0]);  //´¦Àí¸Ã²ãµÄ¾Ö²¿±äÁ¿DEF_LIST
+                semantic_Analysis(T->ptr[0]);  //å¤„ç†è¯¥å±‚çš„å±€éƒ¨å˜é‡DEF_LIST
                 T->width+=T->ptr[0]->width;
                 T->code=T->ptr[0]->code;
                 }
             if (T->ptr[1]){
                 T->ptr[1]->offset=T->offset+T->width;
                 T->ptr[1]->func_type=T->func_type;
-                strcpy(T->ptr[1]->Snext,T->Snext);  //S.nextÊôĞÔÏòÏÂ´«µİ
-                semantic_Analysis(T->ptr[1]);       //´¦Àí¸´ºÏÓï¾äµÄÓï¾äĞòÁĞ
+                strcpy(T->ptr[1]->Snext,T->Snext);  //S.nextå±æ€§å‘ä¸‹ä¼ é€’
+                semantic_Analysis(T->ptr[1]);       //å¤„ç†å¤åˆè¯­å¥çš„è¯­å¥åºåˆ—
                 T->width+=T->ptr[1]->width;
                 T->code=merge(2,T->code,T->ptr[1]->code);
                 }
-             prn_symbol();       //cÔÚÍË³öÒ»¸ö·ûºÏÓï¾äÇ°ÏÔÊ¾µÄ·ûºÅ±í
-             LEV--;    //³ö¸´ºÏÓï¾ä£¬²ãºÅ¼õ1
-             symbolTable.index=symbol_scope_TX.TX[--symbol_scope_TX.top]; //É¾³ı¸Ã×÷ÓÃÓòÖĞµÄ·ûºÅ
+             prn_symbol();       //cåœ¨é€€å‡ºä¸€ä¸ªç¬¦åˆè¯­å¥å‰æ˜¾ç¤ºçš„ç¬¦å·è¡¨
+             LEV--;    //å‡ºå¤åˆè¯­å¥ï¼Œå±‚å·å‡1
+             symbolTable.index=symbol_scope_TX.TX[--symbol_scope_TX.top]; //åˆ é™¤è¯¥ä½œç”¨åŸŸä¸­çš„ç¬¦å·
              break;
     case DEF_LIST:
             T->code=NULL;
             if (T->ptr[0]){
                 T->ptr[0]->offset=T->offset;
-                semantic_Analysis(T->ptr[0]);   //´¦ÀíÒ»¸ö¾Ö²¿±äÁ¿¶¨Òå
+                semantic_Analysis(T->ptr[0]);   //å¤„ç†ä¸€ä¸ªå±€éƒ¨å˜é‡å®šä¹‰
                 T->code=T->ptr[0]->code;
                 T->width=T->ptr[0]->width;
                 }
             if (T->ptr[1]) {
                 T->ptr[1]->offset=T->offset+T->ptr[0]->width;
-                semantic_Analysis(T->ptr[1]);   //´¦ÀíÊ£ÏÂµÄ¾Ö²¿±äÁ¿¶¨Òå
+                semantic_Analysis(T->ptr[1]);   //å¤„ç†å‰©ä¸‹çš„å±€éƒ¨å˜é‡å®šä¹‰
                 T->code=merge(2,T->code,T->ptr[1]->code);
                 T->width+=T->ptr[1]->width;
                 }
                 break;
-    case VAR_DEF://´¦ÀíÒ»¸ö¾Ö²¿±äÁ¿¶¨Òå,½«µÚÒ»¸öº¢×Ó(TYPE½áµã)ÖĞµÄÀàĞÍËÍµ½µÚ¶ş¸öº¢×ÓµÄÀàĞÍÓò
-                 //ÀàËÆÓÚÉÏÃæµÄÍâ²¿±äÁ¿EXT_VAR_DEF£¬»»ÁËÒ»ÖÖ´¦Àí·½·¨
+    case VAR_DEF://å¤„ç†ä¸€ä¸ªå±€éƒ¨å˜é‡å®šä¹‰,å°†ç¬¬ä¸€ä¸ªå­©å­(TYPEç»“ç‚¹)ä¸­çš„ç±»å‹é€åˆ°ç¬¬äºŒä¸ªå­©å­çš„ç±»å‹åŸŸ
+                 //ç±»ä¼¼äºä¸Šé¢çš„å¤–éƒ¨å˜é‡EXT_VAR_DEFï¼Œæ¢äº†ä¸€ç§å¤„ç†æ–¹æ³•
                 T->code=NULL;
-                T->ptr[1]->type=!strcmp(T->ptr[0]->type_id,"int")?INT:(!strcmp(T->ptr[0]->type_id,"float")?FLOAT:CHAR);  //È·¶¨±äÁ¿ĞòÁĞ¸÷±äÁ¿ÀàĞÍ
-                T0=T->ptr[1]; //T0Îª±äÁ¿ÃûÁĞ±í×ÓÊ÷¸ùÖ¸Õë£¬¶ÔID¡¢ASSIGNOPÀà½áµãÔÚµÇ¼Çµ½·ûºÅ±í£¬×÷Îª¾Ö²¿±äÁ¿
+                T->ptr[1]->type=!strcmp(T->ptr[0]->type_id,"int")?INT:(!strcmp(T->ptr[0]->type_id,"float")?FLOAT:CHAR);  //ç¡®å®šå˜é‡åºåˆ—å„å˜é‡ç±»å‹
+                T0=T->ptr[1]; //T0ä¸ºå˜é‡ååˆ—è¡¨å­æ ‘æ ¹æŒ‡é’ˆï¼Œå¯¹IDã€ASSIGNOPç±»ç»“ç‚¹åœ¨ç™»è®°åˆ°ç¬¦å·è¡¨ï¼Œä½œä¸ºå±€éƒ¨å˜é‡
                 num=0;
                 T0->offset=T->offset;
                 T->width=0;
-                width=T->ptr[1]->type==INT?4:8;  //Ò»¸ö±äÁ¿¿í¶È
-                while (T0) {  //´¦ÀíËùÒÔDEC_LIST½áµã
+                width=T->ptr[1]->type==INT?4:8;  //ä¸€ä¸ªå˜é‡å®½åº¦
+                while (T0) {  //å¤„ç†æ‰€ä»¥DEC_LISTç»“ç‚¹
                     num++;
-                    T0->ptr[0]->type=T0->type;  //ÀàĞÍÊôĞÔÏòÏÂ´«µİ
+                    T0->ptr[0]->type=T0->type;  //ç±»å‹å±æ€§å‘ä¸‹ä¼ é€’
                     if (T0->ptr[1]) T0->ptr[1]->type=T0->type;
-                    T0->ptr[0]->offset=T0->offset;  //ÀàĞÍÊôĞÔÏòÏÂ´«µİ
+                    T0->ptr[0]->offset=T0->offset;  //ç±»å‹å±æ€§å‘ä¸‹ä¼ é€’
                     if (T0->ptr[1]) T0->ptr[1]->offset=T0->offset+width;
                     if (T0->ptr[0]->kind==ID){
-                        rtn=fillSymbolTable(T0->ptr[0]->type_id,newAlias(),LEV,T0->ptr[0]->type,'V',T->offset+T->width);//´Ë´¦Æ«ÒÆÁ¿Î´¼ÆËã£¬ÔİÊ±Îª0
+                        rtn=fillSymbolTable(T0->ptr[0]->type_id,newAlias(),LEV,T0->ptr[0]->type,'V',T->offset+T->width);//æ­¤å¤„åç§»é‡æœªè®¡ç®—ï¼Œæš‚æ—¶ä¸º0
                         if (rtn==-1)
-                            semantic_error(T0->ptr[0]->pos,T0->ptr[0]->type_id, "±äÁ¿ÖØ¸´¶¨Òå");
+                            semantic_error(T0->ptr[0]->pos,T0->ptr[0]->type_id, "å˜é‡é‡å¤å®šä¹‰");
                         else T0->ptr[0]->place=rtn;
                         T->width+=width;
                         }
                     else if (T0->ptr[0]->kind==ASSIGNOP){
-                            rtn=fillSymbolTable(T0->ptr[0]->ptr[0]->type_id,newAlias(),LEV,T0->ptr[0]->type,'V',T->offset+T->width);//´Ë´¦Æ«ÒÆÁ¿Î´¼ÆËã£¬ÔİÊ±Îª0
+                            rtn=fillSymbolTable(T0->ptr[0]->ptr[0]->type_id,newAlias(),LEV,T0->ptr[0]->type,'V',T->offset+T->width);//æ­¤å¤„åç§»é‡æœªè®¡ç®—ï¼Œæš‚æ—¶ä¸º0
                             if (rtn==-1)
-                                semantic_error(T0->ptr[0]->ptr[0]->pos,T0->ptr[0]->ptr[0]->type_id, "±äÁ¿ÖØ¸´¶¨Òå");
+                                semantic_error(T0->ptr[0]->ptr[0]->pos,T0->ptr[0]->ptr[0]->type_id, "å˜é‡é‡å¤å®šä¹‰");
                             else {
                                 T0->ptr[0]->place=rtn;
                                 T0->ptr[0]->ptr[1]->offset=T->offset+T->width+width;
@@ -903,12 +903,12 @@ void semantic_Analysis(struct ASTNode *T)
                             T->width+=width+T0->ptr[0]->ptr[1]->width;
                             }
                     else if(T0->ptr[0]->kind==ARRAY_LIST){
-                        rtn=fillSymbolTable(T0->ptr[0]->type_id,newAlias(),LEV,T0->ptr[0]->type,'A',T->offset+T->width);//´Ë´¦Æ«ÒÆÁ¿Î´¼ÆËã£¬ÔİÊ±Îª0
+                        rtn=fillSymbolTable(T0->ptr[0]->type_id,newAlias(),LEV,T0->ptr[0]->type,'A',T->offset+T->width);//æ­¤å¤„åç§»é‡æœªè®¡ç®—ï¼Œæš‚æ—¶ä¸º0
                         if (rtn==-1)
-                            semantic_error(T0->ptr[0]->pos,T0->ptr[0]->type_id, "±äÁ¿ÖØ¸´¶¨Òå");
+                            semantic_error(T0->ptr[0]->pos,T0->ptr[0]->type_id, "å˜é‡é‡å¤å®šä¹‰");
                         else {T0->ptr[0]->place=rtn;
 							 if(array_out(T0->ptr[0]->ptr[0],symbolTable.symbols[T0->ptr[0]->place].array,0)==-1)
-							 	semantic_error(T0->ptr[0]->pos,T0->ptr[0]->type_id, "³¬³öÎ¬¶È");;
+							 	semantic_error(T0->ptr[0]->pos,T0->ptr[0]->type_id, "è¶…å‡ºç»´åº¦");;
 							 }
                         T->width+=width*compute_width(T0->ptr[0]->ptr[0]);
                         }
@@ -916,63 +916,63 @@ void semantic_Analysis(struct ASTNode *T)
                     }
                 break;
 	case STM_LIST:
-                if (!T->ptr[0]) { T->code=NULL; T->width=0; break;}   //¿ÕÓï¾äĞòÁĞ
-                if (T->ptr[1]) //2ÌõÒÔÉÏÓï¾äÁ¬½Ó£¬Éú³ÉĞÂ±êºÅ×÷ÎªµÚÒ»ÌõÓï¾ä½áÊøºóµ½´ïµÄÎ»ÖÃ
+                if (!T->ptr[0]) { T->code=NULL; T->width=0; break;}   //ç©ºè¯­å¥åºåˆ—
+                if (T->ptr[1]) //2æ¡ä»¥ä¸Šè¯­å¥è¿æ¥ï¼Œç”Ÿæˆæ–°æ ‡å·ä½œä¸ºç¬¬ä¸€æ¡è¯­å¥ç»“æŸååˆ°è¾¾çš„ä½ç½®
                     strcpy(T->ptr[0]->Snext,newLabel());
-                else     //Óï¾äĞòÁĞ½öÓĞÒ»ÌõÓï¾ä£¬S.nextÊôĞÔÏòÏÂ´«µİ
+                else     //è¯­å¥åºåˆ—ä»…æœ‰ä¸€æ¡è¯­å¥ï¼ŒS.nextå±æ€§å‘ä¸‹ä¼ é€’
                     strcpy(T->ptr[0]->Snext,T->Snext);
                 T->ptr[0]->func_type=T->func_type;
                 T->ptr[0]->offset=T->offset;
                 semantic_Analysis(T->ptr[0]);
                 T->code=T->ptr[0]->code;
                 T->width=T->ptr[0]->width;
-                if (T->ptr[1]){     //2ÌõÒÔÉÏÓï¾äÁ¬½Ó,S.nextÊôĞÔÏòÏÂ´«µİ
+                if (T->ptr[1]){     //2æ¡ä»¥ä¸Šè¯­å¥è¿æ¥,S.nextå±æ€§å‘ä¸‹ä¼ é€’
                     strcpy(T->ptr[1]->Snext,T->Snext);
                     T->ptr[1]->func_type=T->func_type;
-                    T->ptr[1]->offset=T->offset;  //Ë³Ğò½á¹¹¹²Ïíµ¥Ôª·½Ê½
-//                  T->ptr[1]->offset=T->offset+T->ptr[0]->width; //Ë³Ğò½á¹¹Ë³Ğò·ÖÅäµ¥Ôª·½Ê½
+                    T->ptr[1]->offset=T->offset;  //é¡ºåºç»“æ„å…±äº«å•å…ƒæ–¹å¼
+//                  T->ptr[1]->offset=T->offset+T->ptr[0]->width; //é¡ºåºç»“æ„é¡ºåºåˆ†é…å•å…ƒæ–¹å¼
                     semantic_Analysis(T->ptr[1]);
-                    //ĞòÁĞÖĞµÚ1ÌõÎª±í´ïÊ½Óï¾ä£¬·µ»ØÓï¾ä£¬¸´ºÏÓï¾äÊ±£¬µÚ2ÌõÇ°²»ĞèÒª±êºÅ
+                    //åºåˆ—ä¸­ç¬¬1æ¡ä¸ºè¡¨è¾¾å¼è¯­å¥ï¼Œè¿”å›è¯­å¥ï¼Œå¤åˆè¯­å¥æ—¶ï¼Œç¬¬2æ¡å‰ä¸éœ€è¦æ ‡å·
                     if (T->ptr[0]->kind==RETURN ||T->ptr[0]->kind==EXP_STMT ||T->ptr[0]->kind==COMP_STM)
                         T->code=merge(2,T->code,T->ptr[1]->code);
                     else
                         T->code=merge(3,T->code,genLabel(T->ptr[0]->Snext),T->ptr[1]->code);
-                    if (T->ptr[1]->width>T->width) T->width=T->ptr[1]->width; //Ë³Ğò½á¹¹¹²Ïíµ¥Ôª·½Ê½
-//                        T->width+=T->ptr[1]->width;//Ë³Ğò½á¹¹Ë³Ğò·ÖÅäµ¥Ôª·½Ê½
+                    if (T->ptr[1]->width>T->width) T->width=T->ptr[1]->width; //é¡ºåºç»“æ„å…±äº«å•å…ƒæ–¹å¼
+//                        T->width+=T->ptr[1]->width;//é¡ºåºç»“æ„é¡ºåºåˆ†é…å•å…ƒæ–¹å¼
                     }
                 break;
 	case IF_THEN:
-                strcpy(T->ptr[0]->Etrue,newLabel());  //ÉèÖÃÌõ¼şÓï¾äÕæ¼Ù×ªÒÆÎ»ÖÃ
+                strcpy(T->ptr[0]->Etrue,newLabel());  //è®¾ç½®æ¡ä»¶è¯­å¥çœŸå‡è½¬ç§»ä½ç½®
                 strcpy(T->ptr[0]->Efalse,T->Snext);
                 T->ptr[0]->offset=T->ptr[1]->offset=T->offset;
                 boolExp(T->ptr[0]);
                 T->width=T->ptr[0]->width;
                 strcpy(T->ptr[1]->Snext,T->Snext);
-                semantic_Analysis(T->ptr[1]);      //if×Ó¾ä
+                semantic_Analysis(T->ptr[1]);      //ifå­å¥
                 if (T->width<T->ptr[1]->width) T->width=T->ptr[1]->width;
                 T->code=merge(3,T->ptr[0]->code, genLabel(T->ptr[0]->Etrue),T->ptr[1]->code);
-                break;  //¿ØÖÆÓï¾ä¶¼»¹Ã»ÓĞ´¦ÀíoffsetºÍwidthÊôĞÔ
+                break;  //æ§åˆ¶è¯­å¥éƒ½è¿˜æ²¡æœ‰å¤„ç†offsetå’Œwidthå±æ€§
 	case IF_THEN_ELSE:
-                strcpy(T->ptr[0]->Etrue,newLabel());  //ÉèÖÃÌõ¼şÓï¾äÕæ¼Ù×ªÒÆÎ»ÖÃ
+                strcpy(T->ptr[0]->Etrue,newLabel());  //è®¾ç½®æ¡ä»¶è¯­å¥çœŸå‡è½¬ç§»ä½ç½®
                 strcpy(T->ptr[0]->Efalse,newLabel());
                 T->ptr[0]->offset=T->ptr[1]->offset=T->ptr[2]->offset=T->offset;
-                boolExp(T->ptr[0]);      //Ìõ¼ş£¬Òªµ¥¶À°´¶ÌÂ·´úÂë´¦Àí
+                boolExp(T->ptr[0]);      //æ¡ä»¶ï¼Œè¦å•ç‹¬æŒ‰çŸ­è·¯ä»£ç å¤„ç†
                 T->width=T->ptr[0]->width;
                 strcpy(T->ptr[1]->Snext,T->Snext);
-                semantic_Analysis(T->ptr[1]);      //if×Ó¾ä
+                semantic_Analysis(T->ptr[1]);      //ifå­å¥
                 if (T->width<T->ptr[1]->width) T->width=T->ptr[1]->width;
                 strcpy(T->ptr[2]->Snext,T->Snext);
-                semantic_Analysis(T->ptr[2]);      //else×Ó¾ä
+                semantic_Analysis(T->ptr[2]);      //elseå­å¥
                 if (T->width<T->ptr[2]->width) T->width=T->ptr[2]->width;
                 T->code=merge(6,T->ptr[0]->code,genLabel(T->ptr[0]->Etrue),T->ptr[1]->code,\
                               genGoto(T->Snext),genLabel(T->ptr[0]->Efalse),T->ptr[2]->code);
                 break;
 	case WHILE: breakLabel = NULL;
                 continueLabel = NULL;
-                strcpy(T->ptr[0]->Etrue,newLabel());  //×Ó½áµã¼Ì³ĞÊôĞÔµÄ¼ÆËã
+                strcpy(T->ptr[0]->Etrue,newLabel());  //å­ç»“ç‚¹ç»§æ‰¿å±æ€§çš„è®¡ç®—
                 strcpy(T->ptr[0]->Efalse,T->Snext);
                 T->ptr[0]->offset=T->ptr[1]->offset=T->offset;
-                boolExp(T->ptr[0]);      //Ñ­»·Ìõ¼ş£¬Òªµ¥¶À°´¶ÌÂ·´úÂë´¦Àí
+                boolExp(T->ptr[0]);      //å¾ªç¯æ¡ä»¶ï¼Œè¦å•ç‹¬æŒ‰çŸ­è·¯ä»£ç å¤„ç†
                 T->width=T->ptr[0]->width;
                 strcpy(T->ptr[1]->Snext,newLabel());
                 flag = 1;
@@ -980,7 +980,7 @@ void semantic_Analysis(struct ASTNode *T)
                 breakLabel = genGoto(T->Snext);
                 continueLabel = genGoto(T->ptr[1]->Snext);
 
-                semantic_Analysis(T->ptr[1]);      //Ñ­»·Ìå
+                semantic_Analysis(T->ptr[1]);      //å¾ªç¯ä½“
                 if (T->width<T->ptr[1]->width) T->width=T->ptr[1]->width;
                 T->code=merge(5,genLabel(T->ptr[1]->Snext),T->ptr[0]->code, \
                 genLabel(T->ptr[0]->Etrue),T->ptr[1]->code,genGoto(T->ptr[1]->Snext));
@@ -1003,7 +1003,7 @@ void semantic_Analysis(struct ASTNode *T)
                 strcpy(T->ptr[1]->Etrue,newLabel());  
                 strcpy(T->ptr[1]->Efalse,T->Snext);
                 T->ptr[1]->offset=T->ptr[2]->offset+T->ptr[2]->width;
-                boolExp(T->ptr[1]);      //Ñ­»·Ìõ¼ş£¬Òªµ¥¶À°´¶ÌÂ·´úÂë´¦Àí
+                boolExp(T->ptr[1]);      //å¾ªç¯æ¡ä»¶ï¼Œè¦å•ç‹¬æŒ‰çŸ­è·¯ä»£ç å¤„ç†
                 T->width=T->ptr[0]->width+T->ptr[1]->width+T->ptr[2]->width;
                 T->ptr[3]->offset=T->ptr[2]->offset+T->ptr[2]->width;
                 strcpy(T->ptr[3]->Snext,newLabel());
@@ -1015,7 +1015,7 @@ void semantic_Analysis(struct ASTNode *T)
                 breakLabel = genGoto(T->Snext);
                 continueLabel = genGoto(T->ptr[3]->Snext);
 
-                semantic_Analysis(T->ptr[3]);      //Ñ­»·Ìå
+                semantic_Analysis(T->ptr[3]);      //å¾ªç¯ä½“
                 if (T->width<T->ptr[3]->width) T->width=T->ptr[3]->width;
                 T->code=merge(7,T->ptr[0]->code, \
                 T->ptr[1]->code,genLabel(T->ptr[3]->Snext),T->ptr[2]->code,\
@@ -1036,9 +1036,9 @@ void semantic_Analysis(struct ASTNode *T)
                     T->ptr[0]->offset=T->offset;
                     Exp(T->ptr[0]);
 
-				 /*ĞèÒªÅĞ¶Ï·µ»ØÖµÀàĞÍÊÇ·ñÆ¥Åä*/
+				 /*éœ€è¦åˆ¤æ–­è¿”å›å€¼ç±»å‹æ˜¯å¦åŒ¹é…*/
                  if(T->ptr[0]->type!=T->func_type)
-                    semantic_error(T->pos," ", "·µ»ØÖµÀàĞÍ²»Æ¥Åä");
+                    semantic_error(T->pos," ", "è¿”å›å€¼ç±»å‹ä¸åŒ¹é…");
 
                     T->width=T->ptr[0]->width;
                     result.kind=ID; strcpy(result.id,symbolTable.symbols[T->ptr[0]->place].alias);
@@ -1053,12 +1053,12 @@ void semantic_Analysis(struct ASTNode *T)
                 break;
         case BREAK:
                 if(flag==0)
-                    semantic_error(T->pos," ", "breakÓï¾ä³öÏÖÎ»ÖÃ´íÎó");
+                    semantic_error(T->pos," ", "breakè¯­å¥å‡ºç°ä½ç½®é”™è¯¯");
                 T->code=breakLabel;
                 break;
         case CONTINUE:
                 if(flag==0)
-                    semantic_error(T->pos," ", "continueÓï¾ä³öÏÖÎ»ÖÃ´íÎó");
+                    semantic_error(T->pos," ", "continueè¯­å¥å‡ºç°ä½ç½®é”™è¯¯");
                 T->code=continueLabel;
                 break;
 	case ID:
@@ -1081,7 +1081,7 @@ void semantic_Analysis(struct ASTNode *T)
     case MINUSMINUS:
     case PLUSPLUS:
     case FUNC_CALL:
-                    Exp(T);          //´¦Àí»ù±¾±í´ïÊ½
+                    Exp(T);          //å¤„ç†åŸºæœ¬è¡¨è¾¾å¼
                     break;
         }
     }
@@ -1246,13 +1246,13 @@ fclose(fp);
 void semantic_Analysis0(struct ASTNode *T) {
     symbolTable.index=0;
     fillSymbolTable("read","",0,INT,'F',4);
-    symbolTable.symbols[0].paramnum=0;//readµÄĞÎ²Î¸öÊı
+    symbolTable.symbols[0].paramnum=0;//readçš„å½¢å‚ä¸ªæ•°
     fillSymbolTable("write","",0,INT,'F',4);
     symbolTable.symbols[1].paramnum=1;
     fillSymbolTable("x","",1,INT,'P',12);
-    symbol_scope_TX.TX[0]=0;  //Íâ²¿±äÁ¿ÔÚ·ûºÅ±íÖĞµÄÆğÊ¼ĞòºÅÎª0
+    symbol_scope_TX.TX[0]=0;  //å¤–éƒ¨å˜é‡åœ¨ç¬¦å·è¡¨ä¸­çš„èµ·å§‹åºå·ä¸º0
     symbol_scope_TX.top=1;
-    T->offset=0;              //Íâ²¿±äÁ¿ÔÚÊı¾İÇøµÄÆ«ÒÆÁ¿
+    T->offset=0;              //å¤–éƒ¨å˜é‡åœ¨æ•°æ®åŒºçš„åç§»é‡
     semantic_Analysis(T);
     prnIR(T->code);
     objectCode(T->code);

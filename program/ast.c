@@ -17,112 +17,112 @@ struct ASTNode * mknode(int num,int kind,int pos,...){
 
 
 void display(struct ASTNode *T,int indent)
-{//å¯¹æŠ½è±¡è¯­æ³•æ ‘çš„å…ˆæ ¹éå†
+{//¶Ô³éÏóÓï·¨Ê÷µÄÏÈ¸ù±éÀú
   int i=1;
   struct ASTNode *T0;
   if (T)
 	{
 	switch (T->kind) {
-	case EXT_DEF_LIST:  display(T->ptr[0],indent);    //æ˜¾ç¤ºè¯¥å¤–éƒ¨å®šä¹‰ï¼ˆå¤–éƒ¨å˜é‡å’Œå‡½æ•°ï¼‰åˆ—è¡¨ä¸­çš„ç¬¬ä¸€ä¸ª
-                        display(T->ptr[1],indent);    //æ˜¾ç¤ºè¯¥å¤–éƒ¨å®šä¹‰åˆ—è¡¨ä¸­çš„å…¶å®ƒå¤–éƒ¨å®šä¹‰
+	case EXT_DEF_LIST:  display(T->ptr[0],indent);    //ÏÔÊ¾¸ÃÍâ²¿¶¨Òå£¨Íâ²¿±äÁ¿ºÍº¯Êı£©ÁĞ±íÖĞµÄµÚÒ»¸ö
+                        display(T->ptr[1],indent);    //ÏÔÊ¾¸ÃÍâ²¿¶¨ÒåÁĞ±íÖĞµÄÆäËüÍâ²¿¶¨Òå
                         break;
-	case EXT_VAR_DEF:   printf("%*cå¤–éƒ¨å˜é‡å®šä¹‰ï¼š(%d)\n",indent,' ',T->pos);
-                        display(T->ptr[0],indent+3);        //æ˜¾ç¤ºå¤–éƒ¨å˜é‡ç±»å‹
-                        printf("%*cå˜é‡åï¼š\n",indent+3,' ');
-                        display(T->ptr[1],indent+6);        //æ˜¾ç¤ºå˜é‡åˆ—è¡¨
+	case EXT_VAR_DEF:   printf("%*cÍâ²¿±äÁ¿¶¨Òå:(%d)\n",indent,' ',T->pos);
+                        display(T->ptr[0],indent+3);        //ÏÔÊ¾Íâ²¿±äÁ¿ÀàĞÍ
+                        printf("%*c±äÁ¿Ãû:\n",indent+3,' ');
+                        display(T->ptr[1],indent+6);        //ÏÔÊ¾±äÁ¿ÁĞ±í
                         break;
-	case TYPE:          printf("%*cç±»å‹ï¼š %s\n",indent,' ',T->type_id);
+	case TYPE:          printf("%*cÀàĞÍ: %s\n",indent,' ',T->type_id);
                         break;
-    case EXT_DEC_LIST:  display(T->ptr[0],indent);     //ä¾æ¬¡æ˜¾ç¤ºå¤–éƒ¨å˜é‡åï¼Œ
-                        display(T->ptr[1],indent);     //åç»­è¿˜æœ‰ç›¸åŒçš„ï¼Œä»…æ˜¾ç¤ºè¯­æ³•æ ‘æ­¤å¤„ç†ä»£ç å¯ä»¥å’Œç±»ä¼¼ä»£ç åˆå¹¶
+    case EXT_DEC_LIST:  display(T->ptr[0],indent);     //ÒÀ´ÎÏÔÊ¾Íâ²¿±äÁ¿Ãû£¬
+                        display(T->ptr[1],indent);      //ºóĞø»¹ÓĞÏàÍ¬µÄ£¬½öÏÔÊ¾Óï·¨Ê÷´Ë´¦Àí´úÂë¿ÉÒÔºÍÀàËÆ´úÂëºÏ²¢
                         break;
-	case FUNC_DEF:      printf("%*cå‡½æ•°å®šä¹‰ï¼š(%d)\n",indent,' ',T->pos);
-                        display(T->ptr[0],indent+3);      //æ˜¾ç¤ºå‡½æ•°è¿”å›ç±»å‹
-                        display(T->ptr[1],indent+3);      //æ˜¾ç¤ºå‡½æ•°åå’Œå‚æ•°
-                        display(T->ptr[2],indent+3);      //æ˜¾ç¤ºå‡½æ•°ä½“
+	case FUNC_DEF:      printf("%*cº¯Êı¶¨Òå:(%d)\n",indent,' ',T->pos);
+                        display(T->ptr[0],indent+3);      //ÏÔÊ¾º¯Êı·µ»ØÀàĞÍ
+                        display(T->ptr[1],indent+3);      //ÏÔÊ¾º¯ÊıÃûºÍ²ÎÊı
+                        display(T->ptr[2],indent+3);      //ÏÔÊ¾º¯ÊıÌå
                         break;
-	case FUNC_DEC:      printf("%*cå‡½æ•°åï¼š%s\n",indent,' ',T->type_id);
+	case FUNC_DEC:      printf("%*cº¯ÊıÃû:%s\n",indent,' ',T->type_id);
                         if (T->ptr[0]) {
-                                printf("%*cå‡½æ•°å½¢å‚ï¼š\n",indent,' ');
-                                display(T->ptr[0],indent+3);  //æ˜¾ç¤ºå‡½æ•°å‚æ•°åˆ—è¡¨
+                                printf("%*cº¯ÊıĞÎ²Î:\n",indent,' ');
+                                display(T->ptr[0],indent+3);  //ÏÔÊ¾º¯Êı²ÎÊıÁĞ±í
                                 }
-                        else printf("%*cæ— å‚å‡½æ•°\n",indent+3,' ');
+                        else printf("%*cÎŞ²Îº¯Êı\n",indent+3,' ');
                         break;
-	case PARAM_LIST:    display(T->ptr[0],indent);     //ä¾æ¬¡æ˜¾ç¤ºå…¨éƒ¨å‚æ•°ç±»å‹å’Œåç§°ï¼Œ
+	case PARAM_LIST:    display(T->ptr[0],indent);     //ÒÀ´ÎÏÔÊ¾È«²¿²ÎÊıÀàĞÍºÍÃû³Æ
                         display(T->ptr[1],indent);
                         break;
-	case PARAM_DEC:     printf("%*cç±»å‹ï¼š%s, å‚æ•°åï¼š%s\n",indent,' ',T->ptr[0]->type==INT?"int":(T->ptr[0]->type==FLOAT?"float":"char"),T->ptr[1]->type_id);
+	case PARAM_DEC:     printf("%*cÀàĞÍ:%s, ²ÎÊıÃû:%s\n",indent,' ',T->ptr[0]->type==INT?"int":(T->ptr[0]->type==FLOAT?"float":"char"),T->ptr[1]->type_id);
                         break;
-	case EXP_STMT:      printf("%*cè¡¨è¾¾å¼è¯­å¥ï¼š(%d)\n",indent,' ',T->pos);
+	case EXP_STMT:      printf("%*c±í´ïÊ½Óï¾ä:(%d)\n",indent,' ',T->pos);
                         display(T->ptr[0],indent+3);
                         break;
-	case RETURN:        printf("%*cè¿”å›è¯­å¥ï¼š(%d)\n",indent,' ',T->pos);
+	case RETURN:        printf("%*c·µ»ØÓï¾ä:(%d)\n",indent,' ',T->pos);
                         display(T->ptr[0],indent+3);
                         break;
-    case BREAK:         printf("%*cè·³å‡ºè¯­å¥breakï¼š(%d)\n",indent,' ',T->pos);
+    case BREAK:         printf("%*cÌø³öÓï¾äbreak:(%d)\n",indent,' ',T->pos);
                         break;
-    case CONTINUE:      printf("%*cç»§ç»­è¯­å¥continueï¼š(%d)\n",indent,' ',T->pos);
+    case CONTINUE:      printf("%*c¼ÌĞøÓï¾äcontinue:(%d)\n",indent,' ',T->pos);
                         break;
-	case COMP_STM:      printf("%*cå¤åˆè¯­å¥ï¼š(%d)\n",indent,' ',T->pos);
-                        printf("%*cå¤åˆè¯­å¥çš„å˜é‡å®šä¹‰éƒ¨åˆ†ï¼š\n",indent+3,' ');
-                        display(T->ptr[0],indent+6);      //æ˜¾ç¤ºå®šä¹‰éƒ¨åˆ†
-                        printf("%*cå¤åˆè¯­å¥çš„è¯­å¥éƒ¨åˆ†ï¼š\n",indent+3,' ');
-                        display(T->ptr[1],indent+6);      //æ˜¾ç¤ºè¯­å¥éƒ¨åˆ†
+	case COMP_STM:      printf("%*c¸´ºÏÓï¾ä:(%d)\n",indent,' ',T->pos);
+                        printf("%*c¸´ºÏÓï¾äµÄ±äÁ¿¶¨Òå²¿·Ö:\n",indent+3,' ');
+                        display(T->ptr[0],indent+6);      //ÏÔÊ¾¶¨Òå²¿·Ö
+                        printf("%*c¸´ºÏÓï¾äµÄÓï¾ä²¿·Ö:\n",indent+3,' ');
+                        display(T->ptr[1],indent+6);      //ÏÔÊ¾Óï¾ä²¿·Ö
                         break;
-	case STM_LIST:      display(T->ptr[0],indent);      //æ˜¾ç¤ºç¬¬ä¸€æ¡è¯­å¥
-                        display(T->ptr[1],indent);        //æ˜¾ç¤ºå‰©ä¸‹è¯­å¥
+	case STM_LIST:      display(T->ptr[0],indent);      //ÏÔÊ¾µÚÒ»ÌõÓï¾ä
+                        display(T->ptr[1],indent);       //ÏÔÊ¾Ê£ÏÂÓï¾ä
                         break;
-	case WHILE:         printf("%*cå¾ªç¯è¯­å¥ï¼š(%d)\n",indent,' ',T->pos);
-                        printf("%*cå¾ªç¯æ¡ä»¶ï¼š\n",indent+3,' ');
-                        display(T->ptr[0],indent+6);      //æ˜¾ç¤ºå¾ªç¯æ¡ä»¶
-                        printf("%*cå¾ªç¯ä½“ï¼š(%d)\n",indent+3,' ',T->pos);
-                        display(T->ptr[1],indent+6);      //æ˜¾ç¤ºå¾ªç¯ä½“
+	case WHILE:         printf("%*cÑ­»·Óï¾ä:(%d)\n",indent,' ',T->pos);
+                        printf("%*cÑ­»·Ìõ¼ş:\n",indent+3,' ');
+                        display(T->ptr[0],indent+6);      //ÏÔÊ¾Ñ­»·Ìõ¼ş
+                        printf("%*cÑ­»·Ìå:(%d)\n",indent+3,' ',T->pos);
+                        display(T->ptr[1],indent+6);      //ÏÔÊ¾Ñ­»·Ìå
                         break;
-    case FOR:           printf("%*cå¾ªç¯è¯­å¥ï¼š(%d)\n",indent,' ',T->pos);
-                        printf("%*cå¾ªç¯å®šä¹‰ï¼š\n",indent+3,' ');
-                        display(T->ptr[0],indent+6);      //æ˜¾ç¤ºå¾ªç¯å®šä¹‰
-                        printf("%*cå¾ªç¯æ¡ä»¶ï¼š\n",indent+3,' ');
-                        display(T->ptr[1],indent+6);      //æ˜¾ç¤ºå¾ªç¯æ¡ä»¶
-                        printf("%*cå˜é‡å˜åŒ–è¡¨è¾¾å¼ï¼š(%d)\n",indent+3,' ',T->pos);
-                        display(T->ptr[2],indent+6);      //æ˜¾ç¤ºå¾ªç¯å˜é‡å˜æ¢è¡¨è¾¾å¼
-                        printf("%*cå¾ªç¯ä½“ï¼š(%d)\n",indent+3,' ',T->pos);
-                        display(T->ptr[3],indent+6);      //æ˜¾ç¤ºå¾ªç¯ä½“
+     case FOR:           printf("%*cÑ­»·Óï¾ä:(%d)\n",indent,' ',T->pos);
+                        printf("%*cÑ­»·¶¨Òå:\n",indent+3,' ');
+                        display(T->ptr[0],indent+6);      //ÏÔÊ¾Ñ­»·¶¨Òå
+                        printf("%*cÑ­»·Ìõ¼ş:\n",indent+3,' ');
+                        display(T->ptr[1],indent+6);      //ÏÔÊ¾Ñ­»·Ìõ¼ş
+                        printf("%*c±äÁ¿±ä»¯±í´ïÊ½:(%d)\n",indent+3,' ',T->pos);
+                        display(T->ptr[2],indent+6);      //ÏÔÊ¾Ñ­»·±äÁ¿±ä»»±í´ïÊ½
+                        printf("%*cÑ­»·Ìå:(%d)\n",indent+3,' ',T->pos);
+                        display(T->ptr[3],indent+6);      //ÏÔÊ¾Ñ­»·Ìå
                         break;
-	case IF_THEN:       printf("%*cæ¡ä»¶è¯­å¥(IF_THEN)ï¼š(%d)\n",indent,' ',T->pos);
-                        printf("%*cæ¡ä»¶ï¼š\n",indent+3,' ');
-                        display(T->ptr[0],indent+6);      //æ˜¾ç¤ºæ¡ä»¶
-                        printf("%*cIFå­å¥ï¼š(%d)\n",indent+3,' ',T->pos);
-                        display(T->ptr[1],indent+6);      //æ˜¾ç¤ºifå­å¥
+	case IF_THEN:       printf("%*cÌõ¼şÓï¾ä(IF_THEN):(%d)\n",indent,' ',T->pos);
+                        printf("%*cÌõ¼ş:\n",indent+3,' ');
+                        display(T->ptr[0],indent+6);      //ÏÔÊ¾Ìõ¼ş
+                        printf("%*cIF×Ó¾ä:(%d)\n",indent+3,' ',T->pos);
+                        display(T->ptr[1],indent+6);      //ÏÔÊ¾if×Ó¾ä
                         break;
-	case IF_THEN_ELSE:  printf("%*cæ¡ä»¶è¯­å¥(IF_THEN_ELSE)ï¼š(%d)\n",indent,' ',T->pos);
-                        printf("%*cæ¡ä»¶ï¼š\n",indent+3,' ');
-                        display(T->ptr[0],indent+6);      //æ˜¾ç¤ºæ¡ä»¶
-                        printf("%*cIFå­å¥ï¼š(%d)\n",indent+3,' ',T->pos);
-                        display(T->ptr[1],indent+6);      //æ˜¾ç¤ºifå­å¥
-                        printf("%*cELSEå­å¥ï¼š(%d)\n",indent+3,' ',T->pos);
-                        display(T->ptr[2],indent+6);      //æ˜¾ç¤ºelseå­å¥
+	case IF_THEN_ELSE:  printf("%*cÌõ¼şÓï¾ä(IF_THEN_ELSE):(%d)\n",indent,' ',T->pos);
+                        printf("%*cÌõ¼ş:\n",indent+3,' ');
+                        display(T->ptr[0],indent+6);      //ÏÔÊ¾Ìõ¼ş
+                        printf("%*cIF×Ó¾ä:(%d)\n",indent+3,' ',T->pos);
+                        display(T->ptr[1],indent+6);      //ÏÔÊ¾if×Ó¾ä
+                        printf("%*cELSE×Ó¾ä:(%d)\n",indent+3,' ',T->pos);
+                        display(T->ptr[2],indent+6);      //ÏÔÊ¾else×Ó¾ä
                         break;
-    case DEF_LIST:      display(T->ptr[0],indent);    //æ˜¾ç¤ºè¯¥å±€éƒ¨å˜é‡å®šä¹‰åˆ—è¡¨ä¸­çš„ç¬¬ä¸€ä¸ª
-                        display(T->ptr[1],indent);    //æ˜¾ç¤ºå…¶å®ƒå±€éƒ¨å˜é‡å®šä¹‰
+    case DEF_LIST:      display(T->ptr[0],indent);    //ÏÔÊ¾¸Ã¾Ö²¿±äÁ¿¶¨ÒåÁĞ±íÖĞµÄµÚÒ»¸ö
+                        display(T->ptr[1],indent);    //ÏÔÊ¾ÆäËü¾Ö²¿±äÁ¿¶¨Òå
                         break;
-    case VAR_DEF:       printf("%*cå±€éƒ¨å˜é‡å®šä¹‰ï¼š(%d)\n",indent,' ',T->pos);
-                        display(T->ptr[0],indent+3);   //æ˜¾ç¤ºå˜é‡ç±»å‹
-                        display(T->ptr[1],indent+3);   //æ˜¾ç¤ºè¯¥å®šä¹‰çš„å…¨éƒ¨å˜é‡å
+    case VAR_DEF:       printf("%*c¾Ö²¿±äÁ¿¶¨Òå:(%d)\n",indent,' ',T->pos);
+                        display(T->ptr[0],indent+3);   //ÏÔÊ¾±äÁ¿ÀàĞÍ
+                        display(T->ptr[1],indent+3);   //ÏÔÊ¾¸Ã¶¨ÒåµÄÈ«²¿±äÁ¿Ãû
                         break;
-    case DEC_LIST:      printf("%*cå˜é‡åï¼š\n",indent,' ');
+    case DEC_LIST:      printf("%*c±äÁ¿Ãû:\n",indent,' ');
                         T0=T;
                         while (T0) {
                             if (T0->ptr[0]->kind==ID)
                                 printf("%*c %s\n",indent+6,' ',T0->ptr[0]->type_id);
                             else if(T0->ptr[0]->kind == ARRAY_LIST){
                                 printf("%*c %s\n",indent+6,' ',T0->ptr[0]->type_id);
-                                printf("%*c æ•°ç»„ç»´åº¦\n",indent+6,' ');
+                                printf("%*c Êı×éÎ¬¶È\n",indent+6,' ');
                                 display(T0->ptr[0]->ptr[0],indent+6);
                             }
                             else if (T0->ptr[0]->kind==ASSIGNOP)
                                 {
                                 printf("%*c %s ASSIGNOP\n ",indent+6,' ',T0->ptr[0]->ptr[0]->type_id);
-                                display(T0->ptr[0]->ptr[1],indent+strlen(T0->ptr[0]->ptr[0]->type_id)+7);        //æ˜¾ç¤ºåˆå§‹åŒ–è¡¨è¾¾å¼
+                                display(T0->ptr[0]->ptr[1],indent+strlen(T0->ptr[0]->ptr[0]->type_id)+7);        //ÏÔÊ¾³õÊ¼»¯±í´ïÊ½
                                 }
                             T0=T0->ptr[1];
                             }
@@ -130,13 +130,13 @@ void display(struct ASTNode *T,int indent)
     case ARRAY_LIST:    display(T->ptr[0],indent);
                         display(T->ptr[1],indent);
                         break;
-	case ID:	        printf("%*cIDï¼š %s\n",indent,' ',T->type_id);
+	case ID:	        printf("%*cID: %s\n",indent,' ',T->type_id);
                         break;
-	case INT:	        printf("%*cINTï¼š%d\n",indent,' ',T->type_int);
+	case INT:	        printf("%*cINT:%d\n",indent,' ',T->type_int);
                         break;
-	case FLOAT:	        printf("%*cFLAOTï¼š%f\n",indent,' ',T->type_float);
+	case FLOAT:	        printf("%*cFLAOT:%f\n",indent,' ',T->type_float);
                         break;
-    case CHAR:          printf("%*cCHARï¼š%c\n",indent,' ',T->type_char);
+    case CHAR:          printf("%*cCHAR:%c\n",indent,' ',T->type_char);
                         break;
 	case ASSIGNOP:
     case STARASSIGNOP:
@@ -160,18 +160,18 @@ void display(struct ASTNode *T,int indent)
 	case UMINUS:    printf("%*c%s\n",indent,' ',T->type_id);
                     display(T->ptr[0],indent+3);
                     break;
-    case FUNC_CALL: printf("%*cå‡½æ•°è°ƒç”¨ï¼š(%d)\n",indent,' ',T->pos);
-                    printf("%*cå‡½æ•°åï¼š%s\n",indent+3,' ',T->type_id);
+    case FUNC_CALL: printf("%*cº¯Êıµ÷ÓÃ:(%d)\n",indent,' ',T->pos);
+                    printf("%*cº¯ÊıÃû:%s\n",indent+3,' ',T->type_id);
                     display(T->ptr[0],indent+3);
                     break;
 	case ARGS:      i=1;
-                    while (T) {  //ARGSè¡¨ç¤ºå®é™…å‚æ•°è¡¨è¾¾å¼åºåˆ—ç»“ç‚¹ï¼Œå…¶ç¬¬ä¸€æ£µå­æ ‘ä¸ºå…¶ä¸€ä¸ªå®é™…å‚æ•°è¡¨è¾¾å¼ï¼Œç¬¬äºŒæ£µå­æ ‘ä¸ºå‰©ä¸‹çš„
+                    while (T) {  //ARGS±íÊ¾Êµ¼Ê²ÎÊı±í´ïÊ½ĞòÁĞ½áµã£¬ÆäµÚÒ»¿Ã×ÓÊ÷ÎªÆäÒ»¸öÊµ¼Ê²ÎÊı±í´ïÊ½£¬µÚ¶ş¿Ã×ÓÊ÷ÎªÊ£ÏÂµÄ
                         struct ASTNode *T0=T->ptr[0];
-                        printf("%*cç¬¬%dä¸ªå®é™…å‚æ•°è¡¨è¾¾å¼ï¼š\n",indent,' ',i++);
+                        printf("%*cµÚ%d¸öÊµ¼Ê²ÎÊı±í´ïÊ½:\n",indent,' ',i++);
                         display(T0,indent+3);
                         T=T->ptr[1];
                         }
-//                    printf("%*cç¬¬%dä¸ªå®é™…å‚æ•°è¡¨è¾¾å¼ï¼š\n",indent,' ',i);
+//                    printf("%*cµÚ%d¸öÊµ¼Ê²ÎÊı±í´ïÊ½:\n",indent,' ',i);
   //                  display(T,indent+3);
                     printf("\n");
                     break;
