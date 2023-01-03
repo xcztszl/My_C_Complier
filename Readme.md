@@ -1,85 +1,86 @@
-## ÎÒµÄ¼òµ¥µÄCÓïÑÔ±àÒëÆ÷
+## æˆ‘çš„ç®€å•çš„Cè¯­è¨€ç¼–è¯‘å™¨
 
-#### ÏîÄ¿½á¹¹£º
+#### é¡¹ç›®ç»“æ„ï¼š
 
 ![1672686222390](image/Readme/1672686222390.png)
 
 
 
-±¾ÏîÄ¿Íê³ÉÁËÒ»¸ö»ù±¾µÄCÓïÑÔ±àÒëÆ÷£¬Ä¿Ç°½×¶ÎÖ÷ÒªÍê³ÉÁËÒÔÏÂ¹¦ÄÜ£º
+æœ¬é¡¹ç›®å®Œæˆäº†ä¸€ä¸ªåŸºæœ¬çš„Cè¯­è¨€ç¼–è¯‘å™¨ï¼Œç›®å‰é˜¶æ®µä¸»è¦å®Œæˆäº†ä»¥ä¸‹åŠŸèƒ½ï¼š
 
-**¹¦ÄÜÊµÏÖ£º**
+**åŠŸèƒ½å®ç°ï¼š**
 
-* [X] ´Ê·¨·ÖÎö
-* [X] Óï·¨·ÖÎö&¹¹½¨Óï·¨Ê÷
-  * [X] Ö§³Öº¯Êıµ÷ÓÃ
-* [X] ÀàĞÍ¼ì²é
-* [X] ÖĞ¼ä´úÂëÉú³É
-* [X] Ä¿±ê´úÂëÉú³É
-  * [X] Éú³ÉMIPS»ã±àÖ¸Áî
-  * [X] Ä¿±ê´úÂë¿ÉÊ¹ÓÃMARSÔËĞĞ
+* [X] è¯æ³•åˆ†æ
+* [X] è¯­æ³•åˆ†æ&æ„å»ºè¯­æ³•æ ‘
+  * [X] æ”¯æŒå‡½æ•°è°ƒç”¨
+* [X] ç±»å‹æ£€æŸ¥
+* [X] ä¸­é—´ä»£ç ç”Ÿæˆ
+* [X] ç›®æ ‡ä»£ç ç”Ÿæˆ
+  * [X] ç”ŸæˆMIPSæ±‡ç¼–æŒ‡ä»¤
+  * [X] ç›®æ ‡ä»£ç å¯ä½¿ç”¨MARSè¿è¡Œ
 
 
 
-#### ÔËĞĞ·½Ê½
+#### è¿è¡Œæ–¹å¼
 
-* Ê×ÏÈÅäÖÃÏµÍ³µÄ»·¾³±äÁ¿£¬½«flexÎÄ¼ş¼ĞÏÂµÄbinÄ¿Â¼µÄ¾ø¶ÔÂ·¾¶Ìí¼Ó½øÏµÍ³PathµÄ»·¾³±äÁ¿£¬È·±£flexºÍbisonÖ¸Áî¿ÉÒÔÕı³£Ö´ĞĞ
-* ½øÈëprogramÎÄ¼ş¼ĞÄÚ´ò¿ªÖÕ¶Ë£¬»òÕßÊ¹ÓÃvscodeÖ±½Ó½«programÌí¼Ó½ø¹¤×÷Çø£¬ÔÚÖÕ¶ËÄÚÊäÈë run [´øºó×ºµÄÎÄ¼şÃû],´ËÊ±½«»á×Ô¶¯¶Ô[´øºó×ºµÄÎÄ¼şÃû]µÄÎÄ¼ş½øĞĞ·ÖÎö(.cºó×º)
+* é¦–å…ˆé…ç½®ç³»ç»Ÿçš„ç¯å¢ƒå˜é‡ï¼Œå°†flexæ–‡ä»¶å¤¹ä¸‹çš„binç›®å½•çš„ç»å¯¹è·¯å¾„æ·»åŠ è¿›ç³»ç»ŸPathçš„ç¯å¢ƒå˜é‡ï¼Œç¡®ä¿flexå’ŒbisonæŒ‡ä»¤å¯ä»¥æ­£å¸¸æ‰§è¡Œ
+* è¿›å…¥programæ–‡ä»¶å¤¹å†…æ‰“å¼€ç»ˆç«¯ï¼Œæˆ–è€…ä½¿ç”¨vscodeç›´æ¥å°†programæ·»åŠ è¿›å·¥ä½œåŒºï¼Œåœ¨ç»ˆç«¯å†…è¾“å…¥ run [å¸¦åç¼€çš„æ–‡ä»¶å],æ­¤æ—¶å°†ä¼šè‡ªåŠ¨å¯¹[å¸¦åç¼€çš„æ–‡ä»¶å]çš„æ–‡ä»¶è¿›è¡Œåˆ†æ(.cåç¼€)
 
-**Ò»¸öÀı×Ó**
+**ä¸€ä¸ªä¾‹å­**
 
 `run test1.c`
 
 
-#### ÏîÄ¿·Ö¹¤
+#### é¡¹ç›®åˆ†å·¥
 
 
 
 
 
-#### ÏîÄ¿ÄÚÈİ
+#### é¡¹ç›®å†…å®¹
 
 
 
 
 
 
-#### ÔËĞĞ½á¹û
+#### è¿è¡Œç»“æœ
 
 
 
 
-#### ¸ĞÎòÓë×Ü½á
+#### æ„Ÿæ‚Ÿä¸æ€»ç»“
+
+æœ¬æ¬¡å®éªŒå­¦ä¹ äº†å¦‚ä½•ç¼–å†™flexä»¥åŠbisonå·¥å…·çš„ä½¿ç”¨ï¼Œå¹¶åŸºäºæ­¤å®Œæˆäº†Cè¯­è¨€ç¼–è¯‘å™¨çš„è¯æ³•åˆ†æï¼Œè¯­æ³•åˆ†æéƒ¨åˆ†ï¼Œå®Œæˆé™„åŠ åŠŸèƒ½æ”¯æŒå‡½æ•°è°ƒç”¨ã€‚é€šè¿‡æŸ¥é˜…èµ„æ–™åä¿®
+æ”¹ï¼Œå­¦ä¹ å¹¶å®ç°äº†è¯­æ³•åˆ†ææ ‘çš„æ„å»ºï¼Œç±»å‹æ£€æŸ¥ï¼Œä¸­é—´ä»£ç ç”Ÿæˆä»¥åŠç›®æ ‡ä»£ç ç”Ÿæˆã€‚é™¤æ­¤ä¹‹å¤–ï¼Œè¿˜ç”Ÿæˆäº†å¯æ‰§è¡Œçš„æ±‡ç¼–ç¨‹åºã€‚æœ¬æ¬¡å®éªŒå‚è€ƒäº†éƒ¨åˆ†é¡¹ç›®çš„æ¡†æ¶ï¼Œä¸€
+æ­¥ä¸€æ­¥æ­å»ºå‡ºé¡¹ç›®ç»“æ„å¹¶åŠ ä»¥å®Œå–„ï¼ŒåŠ å¼ºäº†æ‰‹å†™å’Œè°ƒè¯•ä»£ç çš„èƒ½åŠ›ï¼Œæ·±å…¥ç†è§£äº†Cè¯­è¨€ç¼–è¯‘å™¨çš„å®ç°ã€‚
 
 
+#### å‚è€ƒè¿æ¥ï¼š
+
+å‚è€ƒäº†bisonæ–‡ä»¶çš„ç¼–å†™æ¡†æ¶ https://github.com/gamesgao/ComplierForSmallC/blob/master/Simple.y
+
+å‚è€ƒéƒ¨åˆ†é¡¹ç›®ç»“æ„ä¸éƒ¨åˆ†ä¸­é—´ä»£ç ç”Ÿæˆ https://github.com/ICE99125/c_compiler/blob/main/README.md
+
+å‚è€ƒäº†éƒ¨åˆ†è¯­æ³•åˆ†ææ ‘çš„æ„å»ºè¿‡ç¨‹ https://blog.csdn.net/hello_tomorrow_111/article/details/78745868?spm=1001.2101.3001.6650.18&utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromBaidu%7ERate-18-78745868-blog-20483209.pc_relevant_aa&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromBaidu%7ERate-18-78745868-blog-20483209.pc_relevant_aa&utm_relevant_index=19
+
+å‚è€ƒäº†éƒ¨åˆ†parser.cçš„å†…å®¹å¹¶è½¬åŒ–ä½¿ç”¨è¿›äº†parser.y https://download.csdn.net/download/downk/16347479?spm=1001.2101.3001.6661.1&utm_medium=distribute.pc_relevant_t0.none-task-download-2%7Edefault%7ECTRLIST%7EPaid-1-16347479-blog-78745868.pc_relevant_3mothn_strategy_and_data_recovery&depth_1-utm_source=distribute.pc_relevant_t0.none-task-download-2%7Edefault%7ECTRLIST%7EPaid-1-16347479-blog-78745868.pc_relevant_3mothn_strategy_and_data_recovery&utm_relevant_index=1
+
+å‚è€ƒéƒ¨åˆ†flexç¼–å†™å†…å®¹ https://github.com/gamesgao/ComplierForSmallC/blob/master/Simple.lex
 
 
+å­¦ä¹ åšå®¢ï¼š
 
-#### ²Î¿¼Á¬½Ó£º
+â‘  https://blog.csdn.net/wp1603710463/article/details/50365495
 
-²Î¿¼ÁËbisonÎÄ¼şµÄ±àĞ´¿ò¼Ü https://github.com/gamesgao/ComplierForSmallC/blob/master/Simple.y
+â‘¡ https://shiyi.blog.csdn.net/article/details/52988428?spm=1001.2101.3001.6650.2&utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-2-52988428-blog-126979975.pc_relevant_3mothn_strategy_recovery&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-2-52988428-blog-126979975.pc_relevant_3mothn_strategy_recovery&utm_relevant_index=3
 
-²Î¿¼²¿·ÖÏîÄ¿½á¹¹Óë²¿·ÖÖĞ¼ä´úÂëÉú³É https://github.com/ICE99125/c_compiler/blob/main/README.md
+â‘¢ https://blog.csdn.net/weixin_44007632/article/details/108666375
 
-²Î¿¼ÁË²¿·ÖÓï·¨·ÖÎöÊ÷µÄ¹¹½¨¹ı³Ì https://blog.csdn.net/hello_tomorrow_111/article/details/78745868?spm=1001.2101.3001.6650.18&utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromBaidu%7ERate-18-78745868-blog-20483209.pc_relevant_aa&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromBaidu%7ERate-18-78745868-blog-20483209.pc_relevant_aa&utm_relevant_index=19
+â‘£ https://youyuyuyou.blog.csdn.net/article/details/78895327?spm=1001.2101.3001.6650.3&utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-3-78895327-blog-126979975.pc_relevant_3mothn_strategy_recovery&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-3-78895327-blog-126979975.pc_relevant_3mothn_strategy_recovery&utm_relevant_index=4
 
-²Î¿¼ÁË²¿·Öparser.cµÄÄÚÈİ²¢×ª»¯Ê¹ÓÃ½øÁËparser.y https://download.csdn.net/download/downk/16347479?spm=1001.2101.3001.6661.1&utm_medium=distribute.pc_relevant_t0.none-task-download-2%7Edefault%7ECTRLIST%7EPaid-1-16347479-blog-78745868.pc_relevant_3mothn_strategy_and_data_recovery&depth_1-utm_source=distribute.pc_relevant_t0.none-task-download-2%7Edefault%7ECTRLIST%7EPaid-1-16347479-blog-78745868.pc_relevant_3mothn_strategy_and_data_recovery&utm_relevant_index=1
+â‘¤ https://blog.csdn.net/Rosa_zz/article/details/54880256?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522167250214816800211563954%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&request_id=167250214816800211563954&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduend~default-1-54880256-null-null.142^v68^control,201^v4^add_ask,213^v2^t3_control1&utm_term=lex%E4%BD%BF%E7%94%A8
 
-²Î¿¼²¿·Öflex±àĞ´ÄÚÈİ https://github.com/gamesgao/ComplierForSmallC/blob/master/Simple.lex
+â‘¥ https://blog.csdn.net/qq_36411874/article/details/83000350 Bisonä½¿ç”¨è¯´æ˜
 
-
-Ñ§Ï°²©¿Í£º
-
-¢Ù https://blog.csdn.net/wp1603710463/article/details/50365495
-
-¢Ú https://shiyi.blog.csdn.net/article/details/52988428?spm=1001.2101.3001.6650.2&utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-2-52988428-blog-126979975.pc_relevant_3mothn_strategy_recovery&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-2-52988428-blog-126979975.pc_relevant_3mothn_strategy_recovery&utm_relevant_index=3
-
-¢Û https://blog.csdn.net/weixin_44007632/article/details/108666375
-
-¢Ü https://youyuyuyou.blog.csdn.net/article/details/78895327?spm=1001.2101.3001.6650.3&utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-3-78895327-blog-126979975.pc_relevant_3mothn_strategy_recovery&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-3-78895327-blog-126979975.pc_relevant_3mothn_strategy_recovery&utm_relevant_index=4
-
-¢İ https://blog.csdn.net/Rosa_zz/article/details/54880256?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522167250214816800211563954%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&request_id=167250214816800211563954&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduend~default-1-54880256-null-null.142^v68^control,201^v4^add_ask,213^v2^t3_control1&utm_term=lex%E4%BD%BF%E7%94%A8
-
-¢Ş https://blog.csdn.net/qq_36411874/article/details/83000350 BisonÊ¹ÓÃËµÃ÷
-
-¢ß* https://blog.csdn.net/pandaxcl/article/details/1321552 ÏµÁĞ[LexºÍYacc´ÓÈëÃÅµ½¾«Í¨](https://blog.csdn.net/pandaxcl/article/details/1321552)1~6
+â‘¦* https://blog.csdn.net/pandaxcl/article/details/1321552 ç³»åˆ—[Lexå’ŒYaccä»å…¥é—¨åˆ°ç²¾é€š](https://blog.csdn.net/pandaxcl/article/details/1321552)1~6
