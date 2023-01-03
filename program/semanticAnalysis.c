@@ -264,7 +264,7 @@ int fill_Temp(char *name,int level,int type,char flag,int offset) {
 int LEV=0;      //层号
 int func_size;  //1个函数的活动记录大小
 
-void ext_var_list(struct ASTNode *T){  //处理变量列表
+void ext_var_list(struct ASTNode *T){  
     int rtn,num=1;
     switch (T->kind){
         case EXT_DEC_LIST:
@@ -335,7 +335,7 @@ int  match_param(int i,struct ASTNode *T){
     return 1;
     }
 
-void boolExp(struct ASTNode *T){  //布尔表达式，参考文献[2]p84的思想
+void boolExp(struct ASTNode *T){  
   struct opn opn1,opn2,result;
   int op;
   int rtn;
@@ -407,7 +407,7 @@ void boolExp(struct ASTNode *T){  //布尔表达式，参考文献[2]p84的思想
 
 
 void Exp(struct ASTNode *T)
-{//处理基本表达式，参考文献[2]p82的思想
+{
   int rtn,num,width;
   struct ASTNode *T0;
   struct opn opn1,opn2,result;
@@ -737,8 +737,9 @@ void Exp(struct ASTNode *T)
       }
 }
 
+//对抽象语法树的先根遍历,按display的控制结构修改完成符号表管理和语义检查和TAC生成（语句部分）
 void semantic_Analysis(struct ASTNode *T)
-{//对抽象语法树的先根遍历,按display的控制结构修改完成符号表管理和语义检查和TAC生成（语句部分）
+{
   int rtn,num,width;
   struct ASTNode *T0;
   struct opn opn1,opn2,result;

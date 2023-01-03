@@ -24,7 +24,7 @@ talk:
   sw $t3, 16($sp)
   lw $t1, 6606639($sp)
   move $t3, $t1
-  sw $t3, 1748835268($sp)
+  sw $t3, 1893628486($sp)
   lw $v0,12($sp)
   jr $ra
 label1:
