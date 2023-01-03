@@ -1,370 +1,85 @@
-## ¼òµ¥µÄCÓïÑÔ±àÒëÆ÷
+## æˆ‘çš„ç®€å•çš„Cè¯­è¨€ç¼–è¯‘å™¨
 
-#### ÏîÄ¿½á¹¹£º
+#### é¡¹ç›®ç»“æž„ï¼š
 
 ![1672686222390](image/Readme/1672686222390.png)
 
 
 
-±¾ÏîÄ¿Íê³ÉÁËÒ»¸ö»ù±¾µÄCÓïÑÔ±àÒëÆ÷£¬Ä¿Ç°½×¶ÎÖ÷ÒªÍê³ÉÁËÒÔÏÂ¹¦ÄÜ£º
+æœ¬é¡¹ç›®å®Œæˆäº†ä¸€ä¸ªåŸºæœ¬çš„Cè¯­è¨€ç¼–è¯‘å™¨ï¼Œç›®å‰é˜¶æ®µä¸»è¦å®Œæˆäº†ä»¥ä¸‹åŠŸèƒ½ï¼š
 
-**¹¦ÄÜÊµÏÖ£º**
+**åŠŸèƒ½å®žçŽ°ï¼š**
 
-* [X] ´Ê·¨·ÖÎö
-* [X] Óï·¨·ÖÎö&¹¹½¨Óï·¨Ê÷
-  * [X] Ö§³Öº¯Êýµ÷ÓÃ
-* [X] ÀàÐÍ¼ì²é
-* [X] ÖÐ¼ä´úÂëÉú³É
-* [X] Ä¿±ê´úÂëÉú³É
-  * [X] Éú³ÉMIPS»ã±àÖ¸Áî
-  * [X] Ä¿±ê´úÂë¿ÉÊ¹ÓÃMARSÔËÐÐ
+* [X] è¯æ³•åˆ†æž
+* [X] è¯­æ³•åˆ†æž&æž„å»ºè¯­æ³•æ ‘
+  * [X] æ”¯æŒå‡½æ•°è°ƒç”¨
+* [X] ç±»åž‹æ£€æŸ¥
+* [X] ä¸­é—´ä»£ç ç”Ÿæˆ
+* [X] ç›®æ ‡ä»£ç ç”Ÿæˆ
+  * [X] ç”ŸæˆMIPSæ±‡ç¼–æŒ‡ä»¤
+  * [X] ç›®æ ‡ä»£ç å¯ä½¿ç”¨MARSè¿è¡Œ
 
 
 
-#### ÔËÐÐ·½Ê½
+#### è¿è¡Œæ–¹å¼
 
-* Ê×ÏÈÅäÖÃÏµÍ³µÄ»·¾³±äÁ¿£¬½«flexÎÄ¼þ¼ÐÏÂµÄbinÄ¿Â¼µÄ¾ø¶ÔÂ·¾¶Ìí¼Ó½øÏµÍ³PathµÄ»·¾³±äÁ¿£¬È·±£flexºÍbisonÖ¸Áî¿ÉÒÔÕý³£Ö´ÐÐ
-* ½øÈëprogramÎÄ¼þ¼ÐÄÚ´ò¿ªÖÕ¶Ë£¬»òÕßÊ¹ÓÃvscodeÖ±½Ó½«programÌí¼Ó½ø¹¤×÷Çø£¬ÔÚÖÕ¶ËÄÚÊäÈë `run [´øºó×ºµÄÎÄ¼þÃû]`,´ËÊ±½«»á×Ô¶¯¶Ô[´øºó×ºµÄÎÄ¼þÃû]µÄÎÄ¼þ½øÐÐ·ÖÎö(.cºó×º)
+* é¦–å…ˆé…ç½®ç³»ç»Ÿçš„çŽ¯å¢ƒå˜é‡ï¼Œå°†flexæ–‡ä»¶å¤¹ä¸‹çš„binç›®å½•çš„ç»å¯¹è·¯å¾„æ·»åŠ è¿›ç³»ç»ŸPathçš„çŽ¯å¢ƒå˜é‡ï¼Œç¡®ä¿flexå’ŒbisonæŒ‡ä»¤å¯ä»¥æ­£å¸¸æ‰§è¡Œ
+* è¿›å…¥programæ–‡ä»¶å¤¹å†…æ‰“å¼€ç»ˆç«¯ï¼Œæˆ–è€…ä½¿ç”¨vscodeç›´æŽ¥å°†programæ·»åŠ è¿›å·¥ä½œåŒºï¼Œåœ¨ç»ˆç«¯å†…è¾“å…¥ run [å¸¦åŽç¼€çš„æ–‡ä»¶å],æ­¤æ—¶å°†ä¼šè‡ªåŠ¨å¯¹[å¸¦åŽç¼€çš„æ–‡ä»¶å]çš„æ–‡ä»¶è¿›è¡Œåˆ†æž(.cåŽç¼€)
 
-**Ò»¸öÀý×Ó**
+**ä¸€ä¸ªä¾‹å­**
 
 `run test1.c`
 
-×¢Òâ£ºÈ«³ÌÊ¹ÓÃGBK±àÂë·½Ê½£¡
 
-#### ÏîÄ¿·Ö¹¤
+#### é¡¹ç›®åˆ†å·¥
 
-* ÍõÓêº½202083250002£ºÓï·¨·ÖÎö&¹¹½¨Óï·¨Ê÷£¬Ä¿±ê´úÂëÉú³É
-* Â½ÐÀ³Û202083260194£º´Ê·¨·ÖÎö£¬readmeÎÄµµÊéÐ´
-* ÂÀÕý202083260078£ºÀàÐÍ¼ì²é£¬readmeÎÄµµÊéÐ´
-* ËïÊÀ°º202083290054£ºÖÐ¼ä´úÂëÉú³É£¬readmeÎÄµµÊéÐ´
 
 
-#### ÏîÄ¿ÄÚÈÝ
 
-* ±àÐ´ÎÄ¼þ£º
 
-`lex.l`ÎÄ¼þ: ´Ê·¨·ÖÎö²¿·Ö
+#### é¡¹ç›®å†…å®¹
 
-`parser.y`ÎÄ¼þ: Óï·¨·ÖÎö²¿·Ö
 
-`def.h`ÎÄ¼þ: ÖÐ¼ä´úÂëÉú³É£¬±àÐ´Óï·¨Ê÷½áµãÀàÐÍ¡¢ÈýµØÖ·½áµãÀàÐÍµÈ¶¨Òå,ÒÔ¼°ÈýµØÖ·TAC´úÂë½áµã,²ÉÓÃµ¥Á´±í´æ·ÅÖÐ¼äÓïÑÔ´úÂë
 
-`ast.c`ÎÄ¼þ: ±àÐ´Óï·¨·ÖÎö£¬µÝ¹é²úÉúÓï·¨Ê÷µÄÏÈÐò±éÀú
 
-`semanticAnalysis.c`ÎÄ¼þ Ö÷Òªº¯Êý:
 
-> ¢ÙfillSymbolTable fuction ±äÁ¿¶¨Òå´¦Àí
->
-> ¢Úext_var_list function ±äÁ¿ÁÐ±í´¦Àí
->
-> ¢ÛboolExp & Exp functionÓÃÓÚ´¦Àí»ù±¾±í´ïÊ½µÄÓï·¨¼ì²é
->
-> ¢Üsemantic_Analysis functionÓÃÓÚÓïÒå¼ì²éºÍÖÐ¼ä´úÂëTACÓï¾äÉú³É
->
-> ...
 
-* ¾­flex/bisonµÈ±àÒëÉú³ÉµÄÎÄ¼þ
+#### è¿è¡Œç»“æžœ
 
-`parser.tab.c`
 
-`parser.tab.h`
 
-`run.bat` ×Ô¼º±àÐ´µÄ½Å±¾£¬ÓÃÓÚÔËÐÐ³ÌÐò£¬ÆäÔËÐÐ¸ñÊ½Îª `run [filename.c]`
 
-* ½á¹ûÎÄ¼þ
+#### æ„Ÿæ‚Ÿä¸Žæ€»ç»“
 
-`parser.exe ` ±àÒëÆ÷ÏîÄ¿×îÖÕ¿ÉÖ´ÐÐÎÄ¼þ
+å•æ­£202083260078ï¼šæœ¬æ¬¡å®žéªŒè´Ÿè´£ç±»åž‹æ£€æŸ¥éƒ¨åˆ†ã€‚é¦–å…ˆæ˜¯å¤„ç†å¸ƒå°”è¡¨è¾¾å¼ï¼Œå…³é”®æ˜¯å…³ç³»è¿ç®—è¡¨è¾¾å¼çš„å¤„ç†ï¼Œä¸¤ä¸ªæ“ä½œæ•°éƒ½æŒ‰ç…§åŸºæœ¬è¡¨è¾¾å¼è¿›è¡Œå¤„ç†ã€‚å…¶æ¬¡å¤„ç†åŸºæœ¬è¡¨è¾¾å¼ï¼Œè‹¥ä¼ å…¥æ­£ç¡®çš„æ ‡è¯†ç¬¦ï¼ŒæŸ¥ç¬¦å·è¡¨ï¼ŒèŽ·å¾—ä½ç½®ï¼›è‹¥ä¼ å…¥é”™è¯¯çš„æ ‡è¯†ç¬¦å°±è¿›è¡Œæç¤ºï¼Œæ¯”å¦‚æœªå®šä¹‰çš„å˜é‡ï¼Œç±»åž‹ä¸åŒ¹é…ï¼Œæ•°ç»„ç»´æ•°éžæ•´åž‹ï¼Œç»´åº¦è¶Šç•Œï¼Œç»´åº¦è¶…è¿‡å®šä¹‰å€¼ç­‰ï¼›è‹¥ä¼ å…¥æ•´åž‹ï¼Œä¸ºæ•´åž‹å¸¸é‡ç”Ÿæˆä¸€ä¸ªä¸´æ—¶å˜é‡å¹¶æ£€æŸ¥ï¼›æµ®ç‚¹åž‹å’Œå­—ç¬¦åž‹åŒæ•´åž‹ï¼›ç„¶åŽæ£€æŸ¥èµ‹å€¼è¯­å¥æ˜¯å¦æœ‰å·¦å€¼ï¼Œæ£€æŸ¥èµ‹å€¼è¯­å¥çš„è¿ç®—å·¦å³æ˜¯å¦åŒ¹é…ï¼Œæ£€æŸ¥å³å€¼æ˜¯å¦æ˜¯ä¸€ä¸ªå˜é‡æˆ–ä¸´æ—¶å˜é‡ï¼Œæ£€æŸ¥++å’Œ--ï¼Œæ˜¯å¦æœ‰å·¦å€¼ï¼Œå¹¶æ£€æŸ¥++æˆ–--ä½œç”¨çš„æ˜¯å¦æ˜¯æ•´åž‹ç­‰ã€‚é€šè¿‡ä¸æ–­æŸ¥é˜…èµ„æ–™å’Œä¿®æ”¹ï¼Œå¢žå¼ºäº†æ‰‹å†™å’Œè°ƒè¯•ä»£ç çš„èƒ½åŠ›ï¼Œä¹ŸåŠ æ·±äº†å¯¹ç¼–è¯‘å™¨çš„è®¤è¯†ã€‚ä¸è¿‡ä¹Ÿæœ‰ä¸€äº›ä¸è¶³ä¹‹å¤„ï¼Œæ¯”å¦‚æŒ‰ç…§ç®—æœ¯è¡¨è¾¾å¼çš„æ–¹å¼æ¥è®¡ç®—å¸ƒå°”å€¼æ²¡æœ‰å®Œæˆï¼Œéƒ¨åˆ†ç±»åž‹å±žæ€§è®¡ç®—æ²¡æœ‰è€ƒè™‘åˆ°é”™è¯¯å¤„ç†ç­‰æƒ…å†µã€‚
 
-`object.s` Éú³ÉµÄMIPS¸ñÊ½»ã±àÖ¸Áî
 
 
-#### ÔËÐÐ½á¹û
+#### å‚è€ƒè¿žæŽ¥ï¼š
 
-* Ê×ÏÈ¶ÔÓÚÌâÄ¿ÎÄµµÖÐ¸ø³öµÄ³ÌÐò
+å‚è€ƒäº†bisonæ–‡ä»¶çš„ç¼–å†™æ¡†æž¶ https://github.com/gamesgao/ComplierForSmallC/blob/master/Simple.y
 
-```cpp
-void main() {
- int a;
- for (int i = 0; i < 3; ) {
- i = i + 1
- }
-}
-```
+å‚è€ƒéƒ¨åˆ†é¡¹ç›®ç»“æž„ä¸Žéƒ¨åˆ†ä¸­é—´ä»£ç ç”Ÿæˆ https://github.com/ICE99125/c_compiler/blob/main/README.md
 
-Ö´ÐÐ `run test3.c`
+å‚è€ƒäº†éƒ¨åˆ†è¯­æ³•åˆ†æžæ ‘çš„æž„å»ºè¿‡ç¨‹ https://blog.csdn.net/hello_tomorrow_111/article/details/78745868?spm=1001.2101.3001.6650.18&utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromBaidu%7ERate-18-78745868-blog-20483209.pc_relevant_aa&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromBaidu%7ERate-18-78745868-blog-20483209.pc_relevant_aa&utm_relevant_index=19
 
-ÓÉÓÚCÓïÑÔÓï·¨²»Ö§³ÖÔÚforÑ­»·ÄÚ¶¨Òå±äÁ¿£¬Òò´Ë±¨´í
+å‚è€ƒäº†éƒ¨åˆ†parser.cçš„å†…å®¹å¹¶è½¬åŒ–ä½¿ç”¨è¿›äº†parser.y https://download.csdn.net/download/downk/16347479?spm=1001.2101.3001.6661.1&utm_medium=distribute.pc_relevant_t0.none-task-download-2%7Edefault%7ECTRLIST%7EPaid-1-16347479-blog-78745868.pc_relevant_3mothn_strategy_and_data_recovery&depth_1-utm_source=distribute.pc_relevant_t0.none-task-download-2%7Edefault%7ECTRLIST%7EPaid-1-16347479-blog-78745868.pc_relevant_3mothn_strategy_and_data_recovery&utm_relevant_index=1
 
-![1672757884582](image/Readme/1672757884582.png)
+å‚è€ƒéƒ¨åˆ†flexç¼–å†™å†…å®¹ https://github.com/gamesgao/ComplierForSmallC/blob/master/Simple.lex
 
-³¢ÊÔÔÚ `test1.c`ÎÄ¼þÄÚ¸üÕý³ÌÐò£º
 
-```cpp
-int main() {
-    int a;
-    int i=0;
-    for(i=0;i<3;i=i+1) 
-    {
-        i = i + 1;
-    }
-}
-```
-
-Ö´ÐÐ `run test1.c`
-
-´Ê·¨·ÖÎö²¿·Ö£º
-
-![1672757983141](image/Readme/1672757983141.png)
-
-Óï·¨·ÖÎö²¿·Ö£º
-
-**Óï·¨Ê÷Éú³É**
-
-![1672758023697](image/Readme/1672758023697.png)
-
-ÖÐ¼ä´úÂëÉú³É£º
-
-![1672758050551](image/Readme/1672758050551.png)
-
-Ä¿±ê´úÂëÉú³É£ºÉú³ÉMIPS¸ñÊ½»ã±àÖ¸Áî£º
-
-![1672758125194](image/Readme/1672758125194.png)
-
-±àÐ´ `test2.c`ÎÄ¼þ£º
-
-```cpp
-int talk(){int b=1;return b;}
-int main() {
-    int a;
-    int b=5.0;
-    int i=0;
-    for(i=0;i<3;i=i+1) 
-    {
-        i = i + 1;
-    }
-    talk();
-    return 0;
-}
-```
-
-Ö´ÐÐ `run test2.c`
-
-Óï·¨·ÖÎö£º
-
-`³éÏóÓï·¨Ê÷`
-
-```
-º¯Êý¶¨Òå:(1)
-   ÀàÐÍ: int
-   º¯ÊýÃû:talk
-      ÎÞ²Îº¯Êý
-   ¸´ºÏÓï¾ä:(1)
-      ¸´ºÏÓï¾äµÄ±äÁ¿¶¨Òå²¿·Ö:
-         ¾Ö²¿±äÁ¿¶¨Òå:(1)
-            ÀàÐÍ: int
-            ±äÁ¿Ãû:
-                   b ASSIGNOP
-                     INT:1
-      ¸´ºÏÓï¾äµÄÓï¾ä²¿·Ö:
-         ·µ»ØÓï¾ä:(1)
-            ID: b
- º¯Êý¶¨Òå:(12)
-   ÀàÐÍ: int
-   º¯ÊýÃû:main
-      ÎÞ²Îº¯Êý
-   ¸´ºÏÓï¾ä:(12)
-      ¸´ºÏÓï¾äµÄ±äÁ¿¶¨Òå²¿·Ö:
-         ¾Ö²¿±äÁ¿¶¨Òå:(3)
-            ÀàÐÍ: int
-            ±äÁ¿Ãû:
-                   a
-         ¾Ö²¿±äÁ¿¶¨Òå:(4)
-            ÀàÐÍ: int
-            ±äÁ¿Ãû:
-                   b ASSIGNOP
-                     FLAOT:5.000000
-         ¾Ö²¿±äÁ¿¶¨Òå:(5)
-            ÀàÐÍ: int
-            ±äÁ¿Ãû:
-                   i ASSIGNOP
-                     INT:0
-      ¸´ºÏÓï¾äµÄÓï¾ä²¿·Ö:
-         Ñ­»·Óï¾ä:(9)
-            Ñ­»·¶¨Òå:
-               ASSIGNOP
-                  ID: i
-                  INT:0
-            Ñ­»·Ìõ¼þ:
-               <
-                  ID: i
-                  INT:3
-            ±äÁ¿±ä»¯±í´ïÊ½:(9)
-               ASSIGNOP
-                  ID: i
-                  PLUS
-                     ID: i
-                     INT:1
-            Ñ­»·Ìå:(9)
-               ¸´ºÏÓï¾ä:(9)
-                  ¸´ºÏÓï¾äµÄ±äÁ¿¶¨Òå²¿·Ö:
-                  ¸´ºÏÓï¾äµÄÓï¾ä²¿·Ö:
-                     ±í´ïÊ½Óï¾ä:(8)
-                        ASSIGNOP
-                           ID: i
-                           PLUS
-                              ID: i
-                              INT:1
-         ±í´ïÊ½Óï¾ä:(10)
-            º¯Êýµ÷ÓÃ:(10)
-               º¯ÊýÃû:talk
-         ·µ»ØÓï¾ä:(11)
-            INT:0
-```
-
-´Ê·¨·ÖÎö£º
-
-![1672758372632](image/Readme/1672758372632.png)
-
-ÖÐ¼ä´úÂëÉú³É:
-
-![1672758433009](image/Readme/1672758433009.png)
-
-Ä¿±ê´úÂëÉú³É£º
-
-```
-.data
-_Prompt: .asciiz "Enter an integer:  "
-_ret: .asciiz "\n"
-.globl main
-.text
-read:
-  li $v0,4
-  la $a0,_Prompt
-  syscall
-  li $v0,5
-  syscall
-  jr $ra
-write:
-  li $v0,1
-  syscall
-  li $v0,4
-  la $a0,_ret
-  syscall
-  move $v0,$0
-  jr $ra
-
-talk:
-  li $t3, 1
-  sw $t3, 16($sp)
-  lw $t1, 6606639($sp)
-  move $t3, $t1
-  sw $t3, 1893628486($sp)
-  lw $v0,12($sp)
-  jr $ra
-label1:
-
-main:
-  addi $sp, $sp, -48
-  lw $t1, 6604480($sp)
-  move $t3, $t1
-  sw $t3, 20($sp)
-  lw $t1, 6604992($sp)
-  move $t3, $t1
-  sw $t3, 12($sp)
-  li $t3, 0
-  sw $t3, 28($sp)
-  lw $t1, 6604480($sp)
-  move $t3, $t1
-  sw $t3, 0($sp)
-  li $t3, 0
-  sw $t3, 32($sp)
-  lw $t1, 32($sp)
-  move $t3, $t1
-  sw $t3, 24($sp)
-  li $t3, 3
-  sw $t3, 44($sp)
-  lw $t1, 24($sp)
-  lw $t2, 44($sp)
-  blt $t1,$t2,label4
-  j label3
-label5:
-  li $t3, 1
-  sw $t3, 36($sp)
-  lw $t1, 24($sp)
-  lw $t2, 36($sp)
-  add $t3,$t1,$t2
-  sw $t3, 40($sp)
-  lw $t1, 40($sp)
-  move $t3, $t1
-  sw $t3, 24($sp)
-label4:
-  li $t3, 1
-  sw $t3, 44($sp)
-  lw $t1, 24($sp)
-  lw $t2, 44($sp)
-  add $t3,$t1,$t2
-  sw $t3, 48($sp)
-  lw $t1, 48($sp)
-  move $t3, $t1
-  sw $t3, 24($sp)
-  j label5
-label3:
-  move $t0,$sp
-  addi $sp, $sp, -20
-  sw $ra,0($sp)
-  jal talk
-  lw $ra,0($sp)
-  addi $sp,$sp,20
-  sw $v0,32($sp)
-  li $t3, 0
-  sw $t3, 32($sp)
-  lw $v0,32($sp)
-  jr $ra
-label2:
-```
-
-
-#### ¸ÐÎòÓë×Ü½á
-
-ÍõÓêº½£º±¾´ÎÊµÑéÄÑ¶È½Ï´ó£¬Òò´ËºÄ·ÑÁËÎÒÃÇ²»ÉÙÊ±¼ä£¬¶øÇÒÓÖÓÉÓÚÐÂ¹ÚÒßÇéµÄÔ­Òòµ¼ÖÂÎÒÃÇÐ¡×éÈ«²¿¶¼ÖÐÕÐ£¬Òò´ËÒ²ÑÓ³ÙÁËÏîÄ¿µÄÌá½»µÄÈÕÆÚ¡£ÎªÁËÍê³É±¾´ÎÏîÄ¿£¬Ê×ÏÈÎÒÈ¥Ñ§Ï°ÁËflexºÍbison/yaccµÄÓÃ·¨£¬°´ÕÕÏÂ·½Á´½ÓµÄ·½Ê½Ñ§»áÁË±àÒëºÍ±àÐ´¼òµ¥µÄ¼ÆËãÆ÷ÏîÄ¿£¬È»ºóµÚ¶þ²½¾ÍÊÇÑ§Ï°±ðÈËµÄ±àÒëÆ÷ÊÇÔõÃ´ÏëµÄ£¬Â½Â½ÐøÐø¿´ÁËÁ½Èý¸ö±È½ÏÇåÎúµÄÏîÄ¿£¬Ñ§Ï°ÁË±ðµÄÏîÄ¿µÄ½á¹¹£¬È»ºó¾Í¿ªÊ¼¶Ô±¾ÏîÄ¿½øÐÐÍêÉÆ¡£Í¨¹ý¿ÎÉÏÑ§Ï°µÄÀíÂÛÖªÊ¶£¬±àÐ´ÁË³éÏóÓï·¨Ê÷µÄÉú³É¡£È»ºó¶ÔÓÚÄ¿±ê´úÂëÉú³É£¬¸ù¾Ý¼ÆËã»ú×é³ÉÔ­Àí¿ÎÉÏµÄÄÚÈÝÎÒÃÇ½Ó´¥¹ýµÄMIPS»ã±à´úÂëµÄÉú³É·½Ê½£¬²¢Í¨¹ýÆäËûÏîÄ¿µÄ±àÐ´·½Ê½ÒÀ´Î¶ÔÆä½øÐÐ±àÐ´¡£³ýÁËÍê³É±¾ÏîÄ¿Ö®Íâ£¬ÎÒÃÇÐ¡×é³ÉÔ±»¹Ê¹ÓÃGithubÍÐ¹Ü´úÂë½øÐÐ·Ö¹¤ºÏ×÷£¬¼«´óµØÌáÉýÁËºÏ×÷µÄÐ§ÂÊ¡£´ËÍâÎÒÃÇ»¥Ïà½»Á÷Ò²ÊÇÌáÉýdebugÐ§ÂÊµÄ¹Ø¼ü¡£
-
-Â½ÐÀ³Û£º
-
-ÂÀÕý£º±¾´ÎÊµÑéÑ§Ï°ÁËÈçºÎ±àÐ´flexÒÔ¼°bison¹¤¾ßµÄÊ¹ÓÃ£¬²¢»ùÓÚ´ËÍê³ÉÁËCÓïÑÔ±àÒëÆ÷µÄ´Ê·¨·ÖÎö£¬Óï·¨·ÖÎö²¿·Ö£¬Íê³É¸½¼Ó¹¦ÄÜÖ§³Öº¯Êýµ÷ÓÃ¡£Í¨¹ý²éÔÄ×ÊÁÏºóÐÞ ¸Ä£¬Ñ§Ï°²¢ÊµÏÖÁËÓï·¨·ÖÎöÊ÷µÄ¹¹½¨£¬ÀàÐÍ¼ì²é£¬ÖÐ¼ä´úÂëÉú³ÉÒÔ¼°Ä¿±ê´úÂëÉú³É¡£³ý´ËÖ®Íâ£¬»¹Éú³ÉÁË¿ÉÖ´ÐÐµÄ»ã±à³ÌÐò¡£±¾´ÎÊµÑé²Î¿¼ÁË²¿·ÖÏîÄ¿µÄ¿ò¼Ü£¬Ò» ²½Ò»²½´î½¨³öÏîÄ¿½á¹¹²¢¼ÓÒÔÍêÉÆ£¬¼ÓÇ¿ÁËÊÖÐ´ºÍµ÷ÊÔ´úÂëµÄÄÜÁ¦£¬ÉîÈëÀí½âÁËCÓïÑÔ±àÒëÆ÷µÄÊµÏÖ¡£
-
-ËïÊÀ°º£º±¾´ÎÊµÑéÖÐÎÒÖ÷Òª¸ºÔðÖÐ¼ä´úÂëÉú³ÉÄ£¿é£¬Í¨¹ýÔÚÆäËû×éÔ±Íê³ÉµÄ´Ê·¨·ÖÎöºÍÓï·¨·ÖÎöµÄÄ£¿é»ù´¡ÉÏ£¬ÔÚÒÑ¾­Éú³ÉÓï·¨·ÖÎöÊ÷µÄÇ°ÌáÏÂ£¬Í¨¹ý±àÐ´³ÌÐòÊµÏÖÁË½«Óï·¨Ê÷×ª»»ÎªÈýµØÖ·Âë£¬²¢ÉèÖÃÁËÒ»¸öµ¥Á´±íµÄ´æ´¢½á¹¹´æ´¢Éú³ÉµÄÈýµØÖ·Âë£¬Íê³ÉÁËÖÐ¼ä´úÂëÉú³ÉµÄ¹¤×÷£¬ÎªºóÃæÄ¿±ê´úÂëÉú³ÉÌá¹©ÁËÌõ¼þ¡£´Ë´Î¿Î³ÌÉè¼ÆÖÐÎÒÓëÐ¡×é¶ÓÔ±Ò»Í¬²éÔÄÁË´óÁ¿×ÊÁÏ£¬ÔÚÊµ¼ù¹ý³ÌÖÐ¼ÓÉîÁË¶Ô¿Î³ÌÖªÊ¶µÄÕÆÎÕ£¬ÉîÈëµÄÌå»áÁË±àÒëµÄ¹ý³Ì£¬¼«´óÌá¸ßÁË¶Ô±àÒëÔ­Àí¿Î³ÌµÄÀí½â¡£
-
-
-¸ü¶àÏêÇé: https://github.com/WangYuHang-cmd/My_C_Complier
-
-
-#### ²Î¿¼Á´½Ó£º
-
-²Î¿¼ÁËbisonÎÄ¼þµÄ±àÐ´¿ò¼Ü https://github.com/gamesgao/ComplierForSmallC/blob/master/Simple.y
-
-²Î¿¼²¿·ÖÏîÄ¿½á¹¹Óë²¿·ÖÖÐ¼ä´úÂëÉú³É https://github.com/ICE99125/c_compiler/blob/main/README.md
-
-²Î¿¼ÁË²¿·ÖÓï·¨·ÖÎöÊ÷µÄ¹¹½¨¹ý³Ì https://blog.csdn.net/hello_tomorrow_111/article/details/78745868?spm=1001.2101.3001.6650.18&utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromBaidu%7ERate-18-78745868-blog-20483209.pc_relevant_aa&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromBaidu%7ERate-18-78745868-blog-20483209.pc_relevant_aa&utm_relevant_index=19
-
-²Î¿¼ÁË²¿·Öparser.cµÄÄÚÈÝ²¢×ª»¯Ê¹ÓÃ½øÁËparser.y https://download.csdn.net/download/downk/16347479?spm=1001.2101.3001.6661.1&utm_medium=distribute.pc_relevant_t0.none-task-download-2%7Edefault%7ECTRLIST%7EPaid-1-16347479-blog-78745868.pc_relevant_3mothn_strategy_and_data_recovery&depth_1-utm_source=distribute.pc_relevant_t0.none-task-download-2%7Edefault%7ECTRLIST%7EPaid-1-16347479-blog-78745868.pc_relevant_3mothn_strategy_and_data_recovery&utm_relevant_index=1
-
-²Î¿¼²¿·Öflex±àÐ´ÄÚÈÝ https://github.com/gamesgao/ComplierForSmallC/blob/master/Simple.lex
-
-
-
-#### Ñ§Ï°²©¿Í£º
-
-¢Ù https://blog.csdn.net/wp1603710463/article/details/50365495
-
-¢Ú https://shiyi.blog.csdn.net/article/details/52988428?spm=1001.2101.3001.6650.2&utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-2-52988428-blog-126979975.pc_relevant_3mothn_strategy_recovery&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-2-52988428-blog-126979975.pc_relevant_3mothn_strategy_recovery&utm_relevant_index=3
-
-¢Û https://blog.csdn.net/weixin_44007632/article/details/108666375
-
-¢Ü https://youyuyuyou.blog.csdn.net/article/details/78895327?spm=1001.2101.3001.6650.3&utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-3-78895327-blog-126979975.pc_relevant_3mothn_strategy_recovery&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-3-78895327-blog-126979975.pc_relevant_3mothn_strategy_recovery&utm_relevant_index=4
-
-¢Ý https://blog.csdn.net/Rosa_zz/article/details/54880256?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522167250214816800211563954%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&request_id=167250214816800211563954&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduend~default-1-54880256-null-null.142^v68^control,201^v4^add_ask,213^v2^t3_control1&utm_term=lex%E4%BD%BF%E7%94%A8
-
-¢Þ https://blog.csdn.net/qq_36411874/article/details/83000350 BisonÊ¹ÓÃËµÃ÷
-
-¢ß* https://blog.csdn.net/pandaxcl/article/details/1321552 ÏµÁÐ[LexºÍYacc´ÓÈëÃÅµ½¾«Í¨](https://blog.csdn.net/pandaxcl/article/details/1321552)1~6
+å­¦ä¹ åšå®¢ï¼š
+
+â‘  https://blog.csdn.net/wp1603710463/article/details/50365495
+
+â‘¡ https://shiyi.blog.csdn.net/article/details/52988428?spm=1001.2101.3001.6650.2&utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-2-52988428-blog-126979975.pc_relevant_3mothn_strategy_recovery&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-2-52988428-blog-126979975.pc_relevant_3mothn_strategy_recovery&utm_relevant_index=3
+
+â‘¢ https://blog.csdn.net/weixin_44007632/article/details/108666375
+
+â‘£ https://youyuyuyou.blog.csdn.net/article/details/78895327?spm=1001.2101.3001.6650.3&utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-3-78895327-blog-126979975.pc_relevant_3mothn_strategy_recovery&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-3-78895327-blog-126979975.pc_relevant_3mothn_strategy_recovery&utm_relevant_index=4
+
+â‘¤ https://blog.csdn.net/Rosa_zz/article/details/54880256?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522167250214816800211563954%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&request_id=167250214816800211563954&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduend~default-1-54880256-null-null.142^v68^control,201^v4^add_ask,213^v2^t3_control1&utm_term=lex%E4%BD%BF%E7%94%A8
+
+â‘¥ https://blog.csdn.net/qq_36411874/article/details/83000350 Bisonä½¿ç”¨è¯´æ˜Ž
+
+â‘¦* https://blog.csdn.net/pandaxcl/article/details/1321552 ç³»åˆ—[Lexå’ŒYaccä»Žå…¥é—¨åˆ°ç²¾é€š](https://blog.csdn.net/pandaxcl/article/details/1321552)1~6
